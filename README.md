@@ -1,3 +1,3 @@
 # SI-Projekt-Anamnese-Web
 
-This is the front-end part of our systemintegration project
+This is the repository for front-end part of our systemintegration project
