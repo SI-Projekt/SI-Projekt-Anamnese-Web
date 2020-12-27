@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 # SIProjektAnamneseWeb
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.1.
@@ -27,15 +25,3 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-=======
-# SI-Projekt-Anamnese-Web
->>>>>>> e81008f (Initial commit)
-=======
-# SI-Projekt-Anamnese-Web
-
-<<<<<<< HEAD
-This is the front-end part of our systemintegration project
->>>>>>> df258db (Update README.md)
-=======
-This is the repository for front-end part of our systemintegration project
->>>>>>> 9fd91bc (Update README.md)
