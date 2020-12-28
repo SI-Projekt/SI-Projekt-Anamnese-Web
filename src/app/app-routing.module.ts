@@ -1,19 +1,25 @@
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
-import { HomeComponent } from './home/home.component'
-import { AdmissionComponent } from './admission/admission.component'
-import { AdministrationComponent } from './administration/administration.component'
+import { HomePatientComponent } from './components/home-patient/home-patient.component'
+import { AdmissionComponent } from './components/admission/admission.component'
+import { LogInComponent } from './components/log-in/log-in.component'
+import { HomePersonalComponent } from './components/home-personal/home-personal.component'
+import { rootingPath } from './shared/rooting-path'
+import { PatientInfoViewComponent } from './components/patient-info-view/patient-info-view.component'
+import { PersonalInfoViewComponent } from './components/personal-info-view/personal-info-view.component'
 
 const routes: Routes = [
-  {path: '', pathMatch: 'full', redirectTo: '/home'},
-  {path: 'home', component: HomeComponent},
-  {path: 'aufnahme', component: AdmissionComponent},
-  {path: 'administration', component: AdministrationComponent}
+  {path: '', pathMatch: 'full', redirectTo: '/' + rootingPath.login},
+  {path: rootingPath.login, component: LogInComponent},
+  {path: rootingPath.home_patient, component: HomePatientComponent},
+  {path: rootingPath.home_personal, component: HomePersonalComponent},
+  {path: rootingPath.aufnahme, component: AdmissionComponent},
+  {path: rootingPath.patient_info_view, component: PatientInfoViewComponent},
+  {path: rootingPath.personal_info_view, component: PersonalInfoViewComponent}
 ]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule {}
