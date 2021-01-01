@@ -1,4 +1,4 @@
-<app-header [titel]="headerTitle"></app-header>
+<app-header [title]="headerTitle"></app-header>
 
 <div class="content" role="main">
 
@@ -25,7 +25,7 @@
       </g>
     </svg>
 
-    <span>{{ title }}-App läuft!</span>
+    <span>SI-Projekt-Anamnese-App läuft!</span>
 
     <svg alt="Rocket Ship Smoke" height="1083.632" id="rocket-smoke" viewBox="0 0 516.119 1083.632" width="516.119"
          xmlns="http://www.w3.org/2000/svg">
@@ -43,10 +43,10 @@
   <p>Was möchten Sie als nächstes tun???</p>
 
   <div class="card-container" style="margin-top: 50px">
-    <a class="card" rel="noopener" routerLink="/aufnahme" style="margin-right: 10px">
+    <a class="card" rel="noopener" routerLink="{{aufnahme_path}}" style="margin-right: 10px">
       <img class="material-icons" style="margin-right: 7px"
            height="24" viewBox="0 0 24 24" width="24"
-           src="assets/logos/new-aufnahme.jpg">
+           src="../../../assets/logos/new-aufnahme.jpg">
 
       <span>New aufnahme</span>
 
@@ -59,7 +59,7 @@
        target="_blank">
       <img class="material-icons" style="margin-right: 7px"
            height="24" viewBox="0 0 24 24" width="24"
-           src="assets/logos/apotheke.png">
+           src="../../../assets/logos/apotheke.png">
 
       <span>Notdienstapotheke</span>
 
