@@ -1,39 +1,32 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing'
 
-import { LogInComponent } from './log-in.component'
+import { NewRegistrationComponent } from './new-registration.component'
 import { RouterTestingModule } from '@angular/router/testing'
 import { HttpClientTestingModule } from '@angular/common/http/testing'
-import { LoginService } from './login.service'
-import { SessionService } from '../../core/authentification-and-authority/session.service'
-import { AuthorityService } from '../../core/authentification-and-authority/authority.service'
-import { AppConfigService } from '../../core/app-config.service'
+import { CommonModule } from '@angular/common'
 import { MatCardModule } from '@angular/material/card'
 import { MatTabsModule } from '@angular/material/tabs'
 import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
-import { CommonModule } from '@angular/common'
 
-describe('LogInComponent', () => {
-  let component: LogInComponent
-  let fixture: ComponentFixture<LogInComponent>
+describe('NewRegistrationComponent', () => {
+  let component: NewRegistrationComponent
+  let fixture: ComponentFixture<NewRegistrationComponent>
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      declarations: [NewRegistrationComponent],
       imports: [
         RouterTestingModule, HttpClientTestingModule, CommonModule,
         MatCardModule, MatTabsModule, MatSnackBarModule, FormsModule,
         ReactiveFormsModule
-      ],
-      declarations: [LogInComponent],
-      providers: [
-        LoginService, SessionService, AuthorityService, AppConfigService
       ],
     })
       .compileComponents()
   })
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LogInComponent)
+    fixture = TestBed.createComponent(NewRegistrationComponent)
     component = fixture.componentInstance
     fixture.detectChanges()
   })

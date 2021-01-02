@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { rootingPath } from '../../shared/rooting-path'
 
 // @ts-ignore
@@ -36,7 +36,5 @@ export class HomePatientComponent implements OnInit {
     const username = this.sessionService.getUsername()
     this.currentUser = personsJson.filter(
       (patient: IPerson) => patient.userName === username)[0]
-
-    console.log(this.currentUser)
   }
 }
