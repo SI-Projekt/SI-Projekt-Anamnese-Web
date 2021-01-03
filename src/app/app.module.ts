@@ -22,10 +22,17 @@ import { HomePersonalComponent } from './components/home-personal/home-personal.
 import { MatTooltipModule } from '@angular/material/tooltip'
 import { PatientInfoViewComponent } from './components/patient-info-view/patient-info-view.component'
 import { PersonalInfoViewComponent } from './components/personal-info-view/personal-info-view.component'
+import { MatTabsModule } from '@angular/material/tabs'
+import { PatientListComponent } from './components/personal-info-view/patient-list/patient-list.component'
+import { DiagnosisListComponent } from './components/personal-info-view/diagnosis-list/diagnosis-list.component'
+import { MatTableModule } from '@angular/material/table'
+import { DiseaseListComponent } from './components/personal-info-view/disease-list/disease-list.component'
+import { MatButtonModule } from '@angular/material/button'
 
 
 const angularMaterialModules = [
-  MatFormFieldModule, MatInputModule, MatIconModule, MatCardModule, MatSnackBarModule, MatTooltipModule
+  MatFormFieldModule, MatInputModule, MatIconModule, MatCardModule, MatSnackBarModule,
+  MatTooltipModule, MatTabsModule, MatTableModule
 ]
 
 @NgModule({
@@ -37,7 +44,10 @@ const angularMaterialModules = [
     LogInComponent,
     HomePersonalComponent,
     PatientInfoViewComponent,
-    PersonalInfoViewComponent
+    PersonalInfoViewComponent,
+    PatientListComponent,
+    DiagnosisListComponent,
+    DiseaseListComponent
   ],
 
   imports: [
@@ -46,7 +56,7 @@ const angularMaterialModules = [
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FormsModule, ReactiveFormsModule, CommonModule
+    FormsModule, ReactiveFormsModule, CommonModule, MatButtonModule,
   ],
 
   providers: [

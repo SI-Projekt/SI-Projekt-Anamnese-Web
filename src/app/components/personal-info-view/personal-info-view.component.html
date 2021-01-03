@@ -1,3 +1,58 @@
 <app-header [title]="headerTitle"></app-header>
 
-<p>personal-info-view works!</p>
+<mat-tab-group>
+
+ <!-- PATIENTS -->
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <img class="material-icons" style="margin-right: 7px"
+           height="24" viewBox="0 0 24 24" width="24"
+           src="../../../assets/logos/patient-logo.png">
+      Patienten
+    </ng-template>
+    <app-patient-list></app-patient-list>
+  </mat-tab>
+
+  <!-- DIAGNOSIS -->
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <img class="material-icons" style="margin-right: 7px"
+           height="24" viewBox="0 0 24 24" width="24"
+           src="../../../assets/logos/diagnose.jpg">
+      Diagnose
+    </ng-template>
+    <app-diagnosis-list></app-diagnosis-list>
+  </mat-tab>
+
+  <!-- ??? -->
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="example-tab-icon">thumb_up</mat-icon>
+      Third
+    </ng-template>
+
+    Content 3
+  </mat-tab>
+
+  <!-- ??? -->
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="example-tab-icon">thumb_up</mat-icon>
+      Vor
+    </ng-template>
+
+    Content 4
+  </mat-tab>
+
+  <!-- ??? -->
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="example-tab-icon">thumb_up</mat-icon>
+      Five
+    </ng-template>
+
+    Content 5
+  </mat-tab>
+
+</mat-tab-group>
+
