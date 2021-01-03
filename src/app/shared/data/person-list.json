@@ -42,6 +42,6 @@
     "firstName": "patient2",
     "lastName": "patient2",
     "type": "patient",
-    "recorded": false
+    "recorded": true
   }
 ]

@@ -43,30 +43,89 @@
   <p>Was möchten Sie als nächstes tun???</p>
 
   <div class="card-container" style="margin-top: 50px">
-    <a class="card" rel="noopener" routerLink="{{aufnahme_path}}" style="margin-right: 10px">
-      <img class="material-icons" style="margin-right: 7px"
-           height="24" viewBox="0 0 24 24" width="24"
-           src="../../../assets/logos/new-aufnahme.jpg">
 
-      <span>New aufnahme</span>
+      <a *ngIf="!currentUser.recorded" class="card" rel="noopener" routerLink="{{aufnahme_path}}" style="margin-right: 10px">
+        <img class="material-icons" style="margin-right: 7px"
+             height="24" viewBox="0 0 24 24" width="24"
+             src="../../../assets/logos/new-aufnahme.jpg">
 
-      <svg class="material-icons" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
-      </svg>
-    </a>
+        <span>New aufnahme</span>
 
-    <a class="card" href="https://www.google.com/search?client=avast&q=Notdienstapotheke" rel="noopener"
-       target="_blank">
-      <img class="material-icons" style="margin-right: 7px"
-           height="24" viewBox="0 0 24 24" width="24"
-           src="../../../assets/logos/apotheke.png">
+        <svg class="material-icons" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+        </svg>
+      </a>
 
-      <span>Notdienstapotheke</span>
+      <a class="card" rel="noopener" (click)="openMyProfilModal()" style="margin-right: 10px">
+        <mat-icon>person</mat-icon>
 
-      <svg class="material-icons" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
-      </svg>
-    </a>
+        <span>Mein Profil</span>
+
+        <svg class="material-icons" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+        </svg>
+      </a>
+
+      <a class="card" href="https://www.google.com/search?client=avast&q=Notdienstapotheke" rel="noopener"
+         target="_blank">
+        <img class="material-icons" style="margin-right: 7px"
+             height="24" viewBox="0 0 24 24" width="24"
+             src="../../../assets/logos/apotheke.png">
+
+        <span>Notdienstapotheke</span>
+
+        <svg class="material-icons" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+        </svg>
+      </a>
+
+      <a *ngIf="currentUser.recorded" class="card" href="{{patient_info_view_path}}" routerLink="{{patient_info_view_path}}">
+        <img class="material-icons" style="margin-right: 7px"
+             height="24" viewBox="0 0 24 24" width="24"
+             src="../../../assets/logos/diagnose.jpg">
+
+        <span>Meine Diagnose</span>
+
+        <svg class="material-icons" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+        </svg>
+      </a>
+
+      <a *ngIf="currentUser.recorded" class="card" href="{{patient_info_view_path}}" routerLink="{{patient_info_view_path}}">
+        <img class="material-icons" style="margin-right: 7px"
+             height="24" viewBox="0 0 24 24" width="24"
+             src="../../../assets/logos/disease.png">
+
+        <span>Meine Krankheiten</span>
+
+        <svg class="material-icons" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+        </svg>
+      </a>
+
+      <a *ngIf="currentUser.recorded" class="card" href="{{patient_info_view_path}}" routerLink="{{patient_info_view_path}}">
+        <img class="material-icons" style="margin-right: 7px"
+             height="24" viewBox="0 0 24 24" width="24"
+             src="../../../assets/logos/allergie.png">
+
+        <span>Meine Allergien</span>
+
+        <svg class="material-icons" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+        </svg>
+      </a>
+
+      <a *ngIf="currentUser.recorded" class="card" href="{{patient_info_view_path}}" routerLink="{{patient_info_view_path}}">
+        <img class="material-icons" style="margin-right: 7px"
+             height="24" viewBox="0 0 24 24" width="24"
+             src="../../../assets/logos/medikamente.png">
+
+        <span>Meine Medikamenten</span>
+
+        <svg class="material-icons" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+        </svg>
+      </a>
 
   </div>
 
