@@ -17,9 +17,7 @@ export class PatientListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.patientList)
     this.getPatients()
-    console.log(this.patientList)
   }
 
   deletePatient(): void {
@@ -29,8 +27,6 @@ export class PatientListComponent implements OnInit {
   private getPatients(): void {
     this.patientList = personsJson.filter(
       (person: IPerson) => person.type === 'patient')
-
-    console.log('done')
   }
 
 }

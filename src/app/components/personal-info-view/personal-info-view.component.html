@@ -1,6 +1,6 @@
 <app-header [title]="headerTitle"></app-header>
 
-<mat-tab-group>
+<mat-tab-group [selectedIndex]="tabIndex" (selectedTabChange)="onTabClicked($event)">
 
  <!-- PATIENTS -->
   <mat-tab>
@@ -24,35 +24,39 @@
     <app-diagnosis-list></app-diagnosis-list>
   </mat-tab>
 
-  <!-- ??? -->
+  <!-- Disease -->
   <mat-tab>
     <ng-template mat-tab-label>
-      <mat-icon class="example-tab-icon">thumb_up</mat-icon>
-      Third
+      <img class="material-icons" style="margin-right: 7px"
+           height="24" viewBox="0 0 24 24" width="24"
+           src="../../../assets/logos/disease.png">
+      Krankheiten
     </ng-template>
-
-    Content 3
+    <app-disease-list></app-disease-list>
   </mat-tab>
 
-  <!-- ??? -->
+  <!-- AllergieTypen -->
   <mat-tab>
     <ng-template mat-tab-label>
-      <mat-icon class="example-tab-icon">thumb_up</mat-icon>
-      Vor
+      <img class="material-icons" style="margin-right: 7px"
+           height="24" viewBox="0 0 24 24" width="24"
+           src="../../../assets/logos/allergie.png">
+      Allergien
     </ng-template>
-
-    Content 4
+    <app-allergy-list></app-allergy-list>
   </mat-tab>
 
-  <!-- ??? -->
+  <!-- MedicationInTake -->
   <mat-tab>
     <ng-template mat-tab-label>
-      <mat-icon class="example-tab-icon">thumb_up</mat-icon>
-      Five
+      <img class="material-icons" style="margin-right: 7px"
+           height="24" viewBox="0 0 24 24" width="24"
+           src="../../../assets/logos/medikamente.png">
+      Medikamente
     </ng-template>
-
-    Content 5
+    <app-medication-in-take-list></app-medication-in-take-list>
   </mat-tab>
+
 
 </mat-tab-group>
 
