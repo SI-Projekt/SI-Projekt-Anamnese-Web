@@ -25,6 +25,9 @@ import { PersonalInfoViewComponent } from './components/personal-info-view/perso
 import { MatTabsModule } from '@angular/material/tabs'
 import { PatientListComponent } from './components/personal-info-view/patient-list/patient-list.component'
 import { DiagnosisListComponent } from './components/personal-info-view/diagnosis-list/diagnosis-list.component'
+import { NewRegistrationComponent } from './components/log-in/new-registration/new-registration.component'
+import { ResetPasswordComponent } from './components/log-in/reset-password/reset-password.component'
+import { BackgroundComponent } from './components/background/background.component'
 import { MatTableModule } from '@angular/material/table'
 import { DiseaseListComponent } from './components/personal-info-view/disease-list/disease-list.component'
 import { MatButtonModule } from '@angular/material/button'
@@ -47,7 +50,10 @@ const angularMaterialModules = [
     PersonalInfoViewComponent,
     PatientListComponent,
     DiagnosisListComponent,
-    DiseaseListComponent
+    DiseaseListComponent,
+    NewRegistrationComponent,
+    ResetPasswordComponent,
+    BackgroundComponent
   ],
 
   imports: [

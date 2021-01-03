@@ -4,9 +4,11 @@ import { LoginService } from './login.service'
 import { SessionService } from '../../core/authentification-and-authority/session.service'
 import { AuthorityService } from '../../core/authentification-and-authority/authority.service'
 import { MatSnackBar } from '@angular/material/snack-bar'
+import { IPerson } from '../../model/person.interface'
+import { rootingPath } from '../../shared/rooting-path'
+
 // @ts-ignore
 import personsJson from '../../shared/data/person-list.json'
-import { IPerson } from '../../model/person.interface'
 
 @Component({
   selector: 'app-log-in',
@@ -17,9 +19,11 @@ export class LogInComponent implements OnInit {
   @Output() registered: EventEmitter<any> = new EventEmitter()
   hidePassword: boolean = true
   isClicked: boolean
-  error: string
   username: string
   password: string
+
+  readonly new_registration_path: string
+  readonly reset_password_path: string
 
   constructor(
     private router: Router,
@@ -27,7 +31,10 @@ export class LogInComponent implements OnInit {
     private sessionService: SessionService,
     private authorityService: AuthorityService,
     private snackBar: MatSnackBar,
-  ) { }
+  ) {
+    this.new_registration_path = '/' + rootingPath.new_registration
+    this.reset_password_path = '/' + rootingPath.reset_password
+  }
 
   ngOnInit(): void { this.cleanAllOnInit() }
 
@@ -83,10 +90,6 @@ export class LogInComponent implements OnInit {
     //       this.cleanAllOnInit()
     //     }
     //   )
-  }
-
-  goToHomePage(): void {
-    this.router.navigate(['/login/reset'])
   }
 
   /*** to go to the dashboard ***/

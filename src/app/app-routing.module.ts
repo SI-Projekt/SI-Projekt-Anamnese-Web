@@ -7,6 +7,8 @@ import { HomePersonalComponent } from './components/home-personal/home-personal.
 import { rootingPath } from './shared/rooting-path'
 import { PatientInfoViewComponent } from './components/patient-info-view/patient-info-view.component'
 import { PersonalInfoViewComponent } from './components/personal-info-view/personal-info-view.component'
+import { NewRegistrationComponent } from './components/log-in/new-registration/new-registration.component'
+import { ResetPasswordComponent } from './components/log-in/reset-password/reset-password.component'
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: '/' + rootingPath.login},
@@ -15,7 +17,9 @@ const routes: Routes = [
   {path: rootingPath.home_personal, component: HomePersonalComponent},
   {path: rootingPath.aufnahme, component: AdmissionComponent},
   {path: rootingPath.patient_info_view, component: PatientInfoViewComponent},
-  {path: rootingPath.personal_info_view, component: PersonalInfoViewComponent}
+  {path: rootingPath.personal_info_view, component: PersonalInfoViewComponent},
+  {path: rootingPath.new_registration, component: NewRegistrationComponent},
+  {path: rootingPath.reset_password, component: ResetPasswordComponent}
 ]
 
 @NgModule({
