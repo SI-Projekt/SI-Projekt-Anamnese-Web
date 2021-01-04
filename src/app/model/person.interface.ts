@@ -18,8 +18,10 @@ export interface IPerson {
   maritalStatusValues?: string
   children?: boolean
 
+  gender?: string
   height?: number
   weight?: number
+  allergies?: Array<string>
 
   type?: string
   recorded?: boolean
@@ -29,4 +31,9 @@ export interface ISecurity {
   id: uuid,
   secretQuestion: string,
   answer: string
+}
+
+export interface IAllergy {
+  id: uuid,
+  name: string,
 }

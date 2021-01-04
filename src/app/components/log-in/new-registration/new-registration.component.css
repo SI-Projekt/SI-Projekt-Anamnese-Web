@@ -54,3 +54,14 @@ mat-card {
   /*margin-right: auto;*/
 }
 
+
+/* about stepper */
+.mat-stepper-horizontal {
+  margin-top: 8px;
+}
+
+.mat-form-field {
+  margin-top: 16px;
+  margin-right: 16px;
+}
+
