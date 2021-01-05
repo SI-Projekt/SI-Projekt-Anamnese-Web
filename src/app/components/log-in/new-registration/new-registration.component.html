@@ -5,11 +5,20 @@
 
   <mat-card class="mat-elevation-z20" style="margin-bottom: 50px">
     <div>
-      <p style="text-align: center; margin-bottom: 30px">
+      <h2 style="text-align: center; margin-bottom: 30px">
         ~ New registration ~
-      </p>
+      </h2>
     </div>
-    <mat-horizontal-stepper linear #stepper>
+
+    <div class="text-left pointer" style="">
+      <a href="{{login_path}}" id="to-login">Zurrueck to login</a>
+    </div>
+
+    <mat-divider></mat-divider>
+
+
+
+    <mat-horizontal-stepper linear #stepper style="margin-top: 30px">
 
       <!--   Personenbezogene Daten   -->
       <mat-step [stepControl]="personenbezogeneFormGroup">
@@ -62,7 +71,7 @@
           <mat-form-field style="width: 45%">
             <mat-label>Handynumber</mat-label>
             <span matPrefix>+49 &nbsp;</span>
-            <input matInput type="number" placeholder="Handynumber" formControlName="handynumberCtrl">
+            <input matInput type="number" placeholder="Handynumber" formControlName="handyNumberCtrl">
           </mat-form-field>
 
           <mat-form-field style="width: 45%">
@@ -116,7 +125,7 @@
 
           <mat-form-field>
             <mat-label>Benutzername</mat-label>
-            <input matInput placeholder="Benutzername" formControlName="benutzernameCtrl" disabled required>
+            <input matInput placeholder="Benutzername" formControlName="benutzernameCtrl" required>
           </mat-form-field>
 
           <mat-form-field>
@@ -153,10 +162,18 @@
 
           <div style="text-align: right">
             <button mat-button matStepperPrevious>Zurrück</button>
-            <button mat-button color="accent" (click)="stepper.reset(); toLogInPage()">Abbrechen</button>
-            <button mat-button color="primary" (click)="confirmPwdRegistration()">Registrieren</button>
+            <button mat-button color="primary" matStepperNext [disabled]="!person.passWord" (click)="confirmPwdRegistration()">Registrieren</button>
           </div>
         </form>
+      </mat-step>
+
+      <mat-step>
+        <ng-template matStepLabel>Done</ng-template>
+        <p>Registrierung abgeschlossen.</p>
+        <div style="text-align: right">
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button color="accent" (click)="stepper.reset(); toLogInPage()">Zum Login</button>
+        </div>
       </mat-step>
 
     </mat-horizontal-stepper>

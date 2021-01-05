@@ -1,11 +1,12 @@
 // @ts-ignore
 import personsJson from '../../../shared/data/person-list.json'
 import { Component, OnInit } from '@angular/core'
-import { IPerson } from '../../../model/person.interface'
+import { IPerson, ISecurity } from '../../../model/person.interface'
 import { MatSnackBar } from '@angular/material/snack-bar'
 import { rootingPath } from '../../../shared/rooting-path'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router'
+import { IAddress } from '../../../model/address.interface'
 
 @Component({
   selector: 'app-new-registration',
@@ -27,16 +28,40 @@ export class NewRegistrationComponent implements OnInit {
     'Wie lautete der Name Ihres besten Freundes, als Sie aufwuchsen?'
   ]
 
-  person: IPerson = <IPerson>{}
+  person: IPerson = <IPerson>{
+    userName: null,
+    passWord: null,
+    security: <ISecurity>{},
+
+    firstName: null,
+    lastName: null,
+    profession: null,
+    address: <IAddress>{},
+    phoneNumber: null,
+    email: null,
+    maritalStatus: null,
+    children: true,
+
+    gender: null,
+    height: null,
+    weight: null,
+
+    type: 'patient',
+    recorded: false
+  }
+
   hidePassword1: boolean = true
   hidePassword2: boolean = true
-  username: string
+
+  readonly login_path: string
 
   constructor(
     private router: Router,
     private _formBuilder: FormBuilder,
     private snackBar: MatSnackBar
-  ) { }
+  ) {
+    this.login_path = rootingPath.login
+  }
 
   ngOnInit(): void {
     this.formGroupInit()
@@ -47,40 +72,23 @@ export class NewRegistrationComponent implements OnInit {
   }
 
   checkForUnicness(): void {
-
+    const personFound = personsJson.filter((person: IPerson) => person.userName === this.person.userName)
+    if (personFound && personFound.length > 0) {
+      this.person.userName += '_' + Math.floor(Math.random() * 3).toString()
+      this.zugangdatenFormGroup.controls['benutzernameCtrl'].setValue([this.person.userName])
+    }
   }
 
-  // onUserName(event: any): void {
-  //   if (event.length > 2) {
-  //     this.person = personsJson.filter((item: IPerson) => item.userName === event)[0]
-  //
-  //     if (this.person && this.person.id !== null) {
-  //       this.secretQuestion = this.person.security.secretQuestion
-  //     } else {
-  //       this.snackBar.open(
-  //         'No user found with this userName "' + event + '"', 'Close',
-  //         {duration: 4000}
-  //       )
-  //     }
-  //   }
-  // }
-
   confirmPwdRegistration(): void {
-    let newUserName = this.zugangdatenFormGroup.get('benutzernameCtrl').value
-    const personFound = personsJson.filter(
-      (person: IPerson) => person.userName === newUserName)
-
-    if (personFound.length > 0) {
-      newUserName += '_' + Math.floor(Math.random() * 3).toString()
-      this.zugangdatenFormGroup.controls['benutzernameCtrl'].setValue(newUserName)
-      this.person.userName = newUserName
-    }
-
-    console.log(newUserName)
+    this.person.gender = this.personenbezogeneFormGroup.controls.geschlechtCtrl.value
+    console.log(this.person)
   }
 
   private formGroupInit(): void {
-    // Personenbezogene Daten:............
+
+    // INIT:............................................................
+
+    // Personenbezogene Daten:
     this.personenbezogeneFormGroup = this._formBuilder.group({
       geschlechtCtrl: [this.geschlechte[0], Validators.required],
       vornameCtrl: ['', Validators.required],
@@ -90,38 +98,9 @@ export class NewRegistrationComponent implements OnInit {
       gewichtCtrl: '',
     })
 
-    this.personenbezogeneFormGroup.controls['geschlechtCtrl'].valueChanges.subscribe(
-      (geschlecht: string) => this.person.gender = geschlecht
-    )
-
-    this.personenbezogeneFormGroup.controls['vornameCtrl'].valueChanges.subscribe(
-      (vorname: string) => {
-        this.person.firstName = vorname
-        this.zugangdatenFormGroup.controls['benutzernameCtrl'].setValue(vorname.toLowerCase())
-      })
-
-    this.personenbezogeneFormGroup.controls['nachnameCtrl'].valueChanges.subscribe(
-      (nachname: string) => {
-        const userNameValue: string = this.person.firstName + this.firstLatterToUpperCase(nachname)
-        this.zugangdatenFormGroup.controls['benutzernameCtrl'].setValue(userNameValue)
-      })
-
-    this.personenbezogeneFormGroup.controls['berufCtrl'].valueChanges.subscribe(
-      (beruf: string) => {
-        this.person.firstName = beruf
-      })
-
-    this.personenbezogeneFormGroup.controls['nachnameCtrl'].valueChanges.subscribe(
-      (nachnameCtrl: string) => {
-        this.person.firstName = vorname
-      })
-
-
-
-
-    // Kontaktdaten:..............
+    // Kontaktdaten:
     this.kontaktdatenFormGroup = this._formBuilder.group({
-      handynumberCtrl: '',
+      handyNumberCtrl: '',
       emailCtrl: ''
     })
 
@@ -135,12 +114,122 @@ export class NewRegistrationComponent implements OnInit {
 
     // zugangdaten:
     this.zugangdatenFormGroup = this._formBuilder.group({
-      benutzernameCtrl: ['', Validators.required],
+      benutzernameCtrl: [{value: '' , disabled: true}, Validators.required],
       passwort1Ctrl: ['', Validators.required],
       passwort2Ctrl: ['', Validators.required],
       geheimfrageCtrl: ['', Validators.required],
       antwortCtrl: ['', Validators.required],
     })
+
+
+
+
+    // ON DATA CHANGE:.....................................................
+
+    // Personenbezogene Daten:
+    this.personenbezogeneFormGroup.controls['vornameCtrl'].valueChanges.subscribe(
+      (vorname: string) => {
+        this.person.firstName = vorname
+        this.person.userName = vorname.toLowerCase()
+      })
+
+    this.personenbezogeneFormGroup.controls['nachnameCtrl'].valueChanges.subscribe(
+      (nachname: string) => {
+        this.person.lastName = nachname
+        this.person.userName = this.person.firstName + this.firstLatterToUpperCase(nachname)
+      })
+
+    this.personenbezogeneFormGroup.controls['berufCtrl'].valueChanges.subscribe(
+      (beruf: string) => {
+        this.person.profession = beruf
+      })
+
+    this.personenbezogeneFormGroup.controls['groeßeCtrl'].valueChanges.subscribe(
+      (groeße: string) => {
+        this.person.height = +groeße
+      })
+
+    this.personenbezogeneFormGroup.controls['gewichtCtrl'].valueChanges.subscribe(
+      (gewicht: string) => {
+        this.person.weight = +gewicht
+      })
+
+
+
+
+    // Kontaktdaten:
+
+    this.kontaktdatenFormGroup.controls['handyNumberCtrl'].valueChanges.subscribe(
+      (handynumber: string) => {
+        this.person.phoneNumber = '+49' + handynumber
+      })
+
+    this.kontaktdatenFormGroup.controls['emailCtrl'].valueChanges.subscribe(
+      (email: string) => {
+        this.person.email = email
+      })
+
+
+
+    // Anschrift Infos:
+
+    const address: IAddress = <IAddress>{}
+
+    this.anschriftFormGroup.controls['strasseCtrl'].valueChanges.subscribe(
+      (strasse: string) => {
+        address.streetAndNumber = strasse
+      })
+
+    this.anschriftFormGroup.controls['plzCtrl'].valueChanges.subscribe(
+      (plz: string) => {
+        address.postalCode = plz
+      })
+
+    this.anschriftFormGroup.controls['landCtrl'].valueChanges.subscribe(
+      (land: string) => {
+        address.country = land
+      })
+
+    this.anschriftFormGroup.controls['stadtCtrl'].valueChanges.subscribe(
+      (stadt: string) => {
+        address.city = stadt
+      })
+
+    this.person.address = address
+
+
+
+    // zugangdaten:
+
+    let password: string = ''
+    const security: ISecurity = <ISecurity>{}
+
+    this.zugangdatenFormGroup.controls['passwort1Ctrl'].valueChanges.subscribe(
+      (passwort1: string) => {
+        password = passwort1
+      })
+
+    this.zugangdatenFormGroup.controls['passwort2Ctrl'].valueChanges.subscribe(
+      (passwort2: string) => {
+        password === passwort2
+          ? this.person.passWord = passwort2
+          : this.snackBar.open(
+                'Die Passwörter stimmen nicht überein!', 'Close',
+                {duration: 5000}
+              )
+      })
+
+    this.zugangdatenFormGroup.controls['geheimfrageCtrl'].valueChanges.subscribe(
+      (geheimfrage: string) => {
+        security.secretQuestion = geheimfrage
+      })
+
+    this.zugangdatenFormGroup.controls['antwortCtrl'].valueChanges.subscribe(
+      (antwort: string) => {
+        security.answer = antwort
+      })
+
+    this.person.security = security
 
   }
 

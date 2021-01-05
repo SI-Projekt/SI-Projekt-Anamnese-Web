@@ -4,18 +4,17 @@ import { IAddress } from './address.interface'
 export interface IPerson {
   id?: uuid
 
-  userName?: string
+  userName: string
   passWord?: string
   security: ISecurity
 
   firstName?: string
   lastName?: string
   profession?: string
-  address?: IAddress
+  address: IAddress
   phoneNumber?: string
   email?: string
-  genderValues?: string
-  maritalStatusValues?: string
+  maritalStatus?: string
   children?: boolean
 
   gender?: string
@@ -34,6 +33,6 @@ export interface ISecurity {
 }
 
 export interface IAllergy {
-  id: uuid,
   name: string,
+  id: uuid,
 }

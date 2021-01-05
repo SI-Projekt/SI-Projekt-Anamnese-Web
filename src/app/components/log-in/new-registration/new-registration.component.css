@@ -34,6 +34,11 @@
   left: 110px;
 }
 
+#to-login {
+  position: relative;
+  font-size: 10px;
+}
+
 /*** class ***/
 .colorEdit {
   color: #337ab7;

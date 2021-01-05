@@ -33,6 +33,7 @@ import { DiseaseListComponent } from './components/personal-info-view/disease-li
 import { MatButtonModule } from '@angular/material/button'
 import { MatStepperModule } from '@angular/material/stepper'
 import { MatSelectModule } from '@angular/material/select'
+import { MatDividerModule } from '@angular/material/divider'
 
 
 const angularMaterialModules = [
@@ -64,7 +65,7 @@ const angularMaterialModules = [
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FormsModule, ReactiveFormsModule, CommonModule, MatButtonModule, MatStepperModule, MatSelectModule,
+    FormsModule, ReactiveFormsModule, CommonModule, MatButtonModule, MatStepperModule, MatSelectModule, MatDividerModule,
   ],
 
   providers: [
