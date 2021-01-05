@@ -1,0 +1,163 @@
+<form #signupForm="ngForm" novalidate>
+  <div class="form-inputs clearfix">
+
+    <div class="row" style="text-align: center">
+      <h3>
+        Mein Profil
+      </h3>
+    </div>
+
+    <mat-divider style="margin-bottom: 10px"></mat-divider>
+
+    <div class="row" style="text-align: right">
+
+      <button (click)="changeDisabled = false" *ngIf="changeDisabled" color="primary"
+              id="edit-button"
+              mat-mini-fab
+              matTooltip="Mein Profil editieren"
+              style="right: 10px">
+        <mat-icon class="example-tab-icon">edit</mat-icon>
+      </button>
+
+      <button (click)="changeDisabled = true" *ngIf="!changeDisabled"
+              id="cancel-button"
+              mat-raised-button
+              matTooltip="Meine Änderungen abbrechen">
+        Abbrechen
+      </button>
+
+      <button (click)="onFormSubmit()" *ngIf="!changeDisabled" [disabled]="!receivedData.firstName || !receivedData.lastName"
+              color="primary"
+              id="save-button"
+              mat-raised-button
+              matTooltip="Meine Änderungen speichern">
+        Speichern
+      </button>
+
+    </div>
+
+    <div class="row">
+
+      <div class="col-sm-12">
+        <div class="col-sm-4" style="margin-bottom: 15px">
+          <label class="required">Vorname *</label>
+          <input
+              #firstNameId="ngModel"
+              [(ngModel)]="receivedData.firstName"
+              [disabled]="changeDisabled"
+              name="firstName"
+              required
+              type="text">
+        </div>
+
+        <div class="col-sm-4" style="margin-bottom: 15px">
+          <label class="required">Nachname *</label>
+          <input
+              #lastNameId="ngModel"
+              [(ngModel)]="receivedData.lastName"
+              [disabled]="changeDisabled"
+              name="lastName"
+              required
+              type="text">
+        </div>
+
+        <div class="col-sm-4" style="margin-bottom: 15px">
+          <label class="required">Benutzername</label>
+          <input
+              #userNameId="ngModel"
+              [(ngModel)]="receivedData.userName"
+              disabled
+              name="userName"
+              required
+              type="text">
+        </div>
+      </div>
+
+      <div class="col-sm-12" style="margin-bottom: 40px">
+
+        <div class="col-sm-4" style="margin-bottom: 15px">
+          <label class="required">Beruf</label>
+          <input
+              #professionId="ngModel"
+              [(ngModel)]="receivedData.profession"
+              [disabled]="changeDisabled"
+              name="profession"
+              required
+              type="text">
+        </div>
+
+        <div class="col-sm-4" style="margin-bottom: 15px">
+          <label class="required">Handynummer</label>
+          <input
+              #phoneNumberId="ngModel"
+              [(ngModel)]="receivedData.phoneNumber"
+              [disabled]="changeDisabled"
+              name="phoneNumber"
+              required
+              type="number">
+        </div>
+
+        <div class="col-sm-4" style="margin-bottom: 15px">
+          <label class="required">E-Mail</label>
+          <input
+              #EMailId="ngModel"
+              [(ngModel)]="receivedData.email"
+              [disabled]="changeDisabled"
+              name="email"
+              required
+              type="email">
+        </div>
+
+      </div>
+
+      <p style="margin-left: 30px">Adresse: </p>
+
+      <div class="col-sm-12">
+
+        <div class="col-sm-3" style="margin-bottom: 15px">
+          <label class="required">Strasse</label>
+          <input
+              #addressId="ngModel"
+              [(ngModel)]="receivedData.address.streetAndNumber"
+              [disabled]="changeDisabled"
+              name="streetAndNumber"
+              required
+              type="text">
+        </div>
+
+        <div class="col-sm-3" style="margin-bottom: 15px">
+          <label class="required">Plz</label>
+          <input
+              #addressId="ngModel"
+              [(ngModel)]="receivedData.address.postalCode"
+              [disabled]="changeDisabled"
+              name="postalCode"
+              required
+              type="text">
+        </div>
+
+        <div class="col-sm-3" style="margin-bottom: 15px">
+          <label class="required">Stadt</label>
+          <input
+              #addressId="ngModel"
+              [(ngModel)]="receivedData.address.city"
+              [disabled]="changeDisabled"
+              name="city"
+              required
+              type="text">
+        </div>
+        <div class="col-sm-3" style="margin-bottom: 15px">
+          <label class="required">Land</label>
+          <input
+              #addressId="ngModel"
+              [(ngModel)]="receivedData.address.country"
+              [disabled]="changeDisabled"
+              name="country"
+              required
+              type="text">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</form>
