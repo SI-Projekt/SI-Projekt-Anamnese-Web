@@ -3,100 +3,180 @@
   <!-- Highlight Card -->
   <app-background></app-background>
 
+  <mat-card class="mat-elevation-z20" style="margin-bottom: 50px">
+    <div>
+      <h2 style="text-align: center; margin-bottom: 30px">
+        ~ New registration ~
+      </h2>
+    </div>
 
-  <!-- Log-in field -->
-  <div class="mat-elevation-z20" id="container">
-    <mat-card>
+    <div class="text-left pointer" style="">
+      <a href="{{login_path}}" id="to-login">Zurrueck to login</a>
+    </div>
 
-      <div class="panel panel-primary">
-        <form #userData="ngForm">
-          <div class="row">
-            <div class="col-sm-12" style="margin-bottom: 50px">
-              <p style="text-align: center">
-                ~ New registration ~
-              </p>
-            </div>
-
-
-            <div class="col-sm-5 input-position">
-              <mat-form-field appearance="outline" class="log-in-form-field" id="userNameForm">
-                <mat-label>Username:</mat-label>
-                <input matInput type="text" placeholder="Username" (ngModelChange)="onUserName($event)"
-                       [(ngModel)]="username" name="username" id="username" required>
-                <mat-icon matSuffix class="colorEdit">account_circle</mat-icon>
-              </mat-form-field>
-            </div>
-
-            <div class="col-sm-5 input-position">
-              <mat-form-field appearance="outline" class="log-in-form-field" id="userNameForm">
-                <mat-label>Username:</mat-label>
-                <input matInput type="text" placeholder="Username" (ngModelChange)="onUserName($event)"
-                       [(ngModel)]="username" name="username" id="username" required>
-                <mat-icon matSuffix class="colorEdit">account_circle</mat-icon>
-              </mat-form-field>
-            </div>
-
-            <!-- USERNAME FIELD -->
-            <div class="input-position">
-              <mat-form-field appearance="outline" class="log-in-form-field" id="userNameForm">
-                <mat-label>Username:</mat-label>
-                <input matInput type="text" placeholder="Username" (ngModelChange)="onUserName($event)"
-                       [(ngModel)]="username" name="username" id="username" required>
-                <mat-icon matSuffix class="colorEdit">account_circle</mat-icon>
-              </mat-form-field>
-            </div>
+    <mat-divider></mat-divider>
 
 
-            <!-- SECURITY FIELD -->
-            <div class="input-position" style="margin-top: -10px">
-              <mat-form-field appearance="outline" class="log-in-form-field" id="secretQuestionForm">
-                <mat-label>Secret question:</mat-label>
-                <input matInput autocomplete="off" placeholder="Question" type="text" disabled
-                       [(ngModel)]="secretQuestion" name="secretQuestion" id="secretQuestion" required>
-              </mat-form-field>
-            </div>
 
-            <div class="input-position" style="margin-top: -10px">
-              <mat-form-field appearance="outline" class="log-in-form-field" id="answerForm">
-                <mat-label>Answer:</mat-label>
-                <input matInput autocomplete="off" placeholder="Answer"
-                       type="text"
-                       [(ngModel)]="answer" name="answer" id="answer" required>
-              </mat-form-field>
-            </div>
+    <mat-horizontal-stepper linear #stepper style="margin-top: 30px">
 
-            <!-- PASSWORD FIELD -->
-            <div class="input-position" style="margin-top: -10px">
-              <mat-form-field appearance="outline" class="log-in-form-field" id="newPasswordForm">
-                <mat-label>New password:</mat-label>
-                <input matInput autocomplete="off" placeholder="New password" [disabled]="!answerCorrect"
-                       [(ngModel)]="newPassword" name="newPassword" id="newPassword" required
-                       [type] = "hidePassword ? 'password' : 'text'" autocomplete="off">
-                <mat-icon matSuffix class="colorEdit pointer" (click)="hidePassword = !hidePassword">
-                  {{hidePassword ? 'visibility_off' : 'visibility'}}
-                </mat-icon>
-              </mat-form-field>
-            </div>
+      <!--   Personenbezogene Daten   -->
+      <mat-step [stepControl]="personenbezogeneFormGroup">
+        <form [formGroup]="personenbezogeneFormGroup">
+          <ng-template matStepLabel>Personendaten</ng-template>
+          <mat-form-field style="width: 60px; margin-right: 50px">
+            <mat-label>Gesch.</mat-label>
+            <mat-select formControlName="geschlechtCtrl" name="geschlecht" required>
+              <mat-option *ngFor="let gesch of geschlechte" [value]="gesch">
+                {{gesch}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
 
-            <div class="text-left pointer" style="margin-top: -20px">
-              <a href="{{login_path}}" id="reset-password">Back to login</a>
-            </div>
+          <mat-form-field>
+            <mat-label>Vorname</mat-label>
+            <input matInput placeholder="Vorname" formControlName="vornameCtrl" required>
+          </mat-form-field>
 
+          <mat-form-field>
+            <mat-label>Nachname</mat-label>
+            <input matInput placeholder="Nachname" formControlName="nachnameCtrl" required>
+          </mat-form-field><br>
 
-            <!-- LOG IN BUTTON -->
-            <div style="margin-bottom: 65px" class="input-position">
-              <button mat-raised-button type="button" class="btn btn-primary button" id="login-button"
-                      [disabled]="!username || !newPassword || !secretQuestion || !answer || isClicked"
-                      (click)="confirmPwdRegistration()">
-                {{isClicked ? 'Reset password...' : 'Reset password'}}
-              </button>
-            </div>
+          <mat-form-field>
+            <mat-label>Beruf</mat-label>
+            <input matInput placeholder="Beruf" formControlName="berufCtrl">
+          </mat-form-field>
 
+          <mat-form-field>
+            <mat-label>Größe</mat-label>
+            <input matInput type="number" placeholder="Größe" formControlName="groeßeCtrl">
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Gewicht</mat-label>
+            <input matInput type="number" placeholder="Gewicht" formControlName="gewichtCtrl">
+          </mat-form-field>
+
+          <div style="text-align: right">
+            <button mat-button color="primary" matStepperNext (click)="checkForUnicness()">Weiter</button>
           </div>
         </form>
-      </div>
+      </mat-step>
 
-    </mat-card>
-  </div>
+      <!--   kontaktdaten   -->
+      <mat-step [stepControl]="kontaktdatenFormGroup">
+        <form [formGroup]="kontaktdatenFormGroup">
+          <ng-template matStepLabel>Kontaktdaten</ng-template>
+          <mat-form-field style="width: 45%">
+            <mat-label>Handynumber</mat-label>
+            <span matPrefix>+49 &nbsp;</span>
+            <input matInput type="number" placeholder="Handynumber" formControlName="handyNumberCtrl">
+          </mat-form-field>
+
+          <mat-form-field style="width: 45%">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" placeholder="Email (exemple@exemple.com)" formControlName="emailCtrl">
+          </mat-form-field>
+
+          <div style="text-align: right">
+            <button mat-button matStepperPrevious>Zurrück</button>
+            <button mat-button color="primary" matStepperNext>Weiter</button>
+          </div>
+        </form>
+      </mat-step>
+
+      <!--   Anschrift   -->
+      <mat-step [stepControl]="anschriftFormGroup">
+        <form [formGroup]="anschriftFormGroup">
+          <ng-template matStepLabel>Anschrift</ng-template>
+
+          <mat-form-field  style="width: 61%">
+            <mat-label>Strasse</mat-label>
+            <input matInput placeholder="Strasse und Hausnummer" formControlName="strasseCtrl" required>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Plz.</mat-label>
+            <input matInput placeholder="Postleitzahl" formControlName="plzCtrl" required>
+          </mat-form-field><br>
+
+          <mat-form-field  style="width: 45%">
+            <mat-label>Land</mat-label>
+            <input matInput placeholder="Land" formControlName="landCtrl" required>
+          </mat-form-field>
+
+          <mat-form-field  style="width: 45%">
+            <mat-label>Stadt</mat-label>
+            <input matInput placeholder="Stadt" formControlName="stadtCtrl" required>
+          </mat-form-field>
+
+          <div style="text-align: right">
+            <button mat-button matStepperPrevious>Zurrück</button>
+            <button mat-button color="primary" matStepperNext>Weiter</button>
+          </div>
+        </form>
+      </mat-step>
+
+      <!--   Zugangdaten   -->
+      <mat-step [stepControl]="zugangdatenFormGroup">
+        <form [formGroup]="zugangdatenFormGroup">
+          <ng-template matStepLabel>Zugangdaten</ng-template>
+
+          <mat-form-field>
+            <mat-label>Benutzername</mat-label>
+            <input matInput placeholder="Benutzername" formControlName="benutzernameCtrl" required>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Passwort</mat-label>
+            <input matInput autocomplete="off" placeholder="Passwort"
+                   formControlName="passwort1Ctrl" [type] = "hidePassword1 ? 'password' : 'text'" required>
+            <mat-icon matSuffix class="colorEdit pointer" (click)="hidePassword1 = !hidePassword1">
+              {{hidePassword1 ? 'visibility_off' : 'visibility'}}
+            </mat-icon>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Passwort (Bestaetigung)</mat-label>
+            <input matInput autocomplete="off" placeholder="Passwort bestaetigen"
+                   formControlName="passwort2Ctrl" [type] = "hidePassword2 ? 'password' : 'text'" required>
+            <mat-icon matSuffix class="colorEdit pointer" (click)="hidePassword2 = !hidePassword2">
+              {{hidePassword2 ? 'visibility_off' : 'visibility'}}
+            </mat-icon>
+          </mat-form-field><br>
+
+          <mat-form-field style="width: 79%">
+            <mat-label>Geheimfrage</mat-label>
+            <mat-select formControlName="geheimfrageCtrl" name="geheimfrage" required>
+              <mat-option *ngFor="let frage of geheimfragen" [value]="frage">
+                {{frage}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field><br>
+
+          <mat-form-field style="width: 50%">
+            <mat-label>Antwort</mat-label>
+            <input matInput placeholder="Antwort" formControlName="antwortCtrl" required>
+          </mat-form-field>
+
+          <div style="text-align: right">
+            <button mat-button matStepperPrevious>Zurrück</button>
+            <button mat-button color="primary" matStepperNext [disabled]="!person.passWord" (click)="confirmPwdRegistration()">Registrieren</button>
+          </div>
+        </form>
+      </mat-step>
+
+      <mat-step>
+        <ng-template matStepLabel>Done</ng-template>
+        <p>Registrierung abgeschlossen.</p>
+        <div style="text-align: right">
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button color="accent" (click)="stepper.reset(); toLogInPage()">Zum Login</button>
+        </div>
+      </mat-step>
+
+    </mat-horizontal-stepper>
+  </mat-card>
 
 </div>

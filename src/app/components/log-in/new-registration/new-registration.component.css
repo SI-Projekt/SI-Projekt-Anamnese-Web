@@ -34,6 +34,11 @@
   left: 110px;
 }
 
+#to-login {
+  position: relative;
+  font-size: 10px;
+}
+
 /*** class ***/
 .colorEdit {
   color: #337ab7;
@@ -52,5 +57,16 @@ mat-card {
   /*display: block;*/
   /*margin-left: auto;*/
   /*margin-right: auto;*/
+}
+
+
+/* about stepper */
+.mat-stepper-horizontal {
+  margin-top: 8px;
+}
+
+.mat-form-field {
+  margin-top: 16px;
+  margin-right: 16px;
 }
 

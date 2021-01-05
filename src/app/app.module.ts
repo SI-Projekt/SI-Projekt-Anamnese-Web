@@ -31,6 +31,9 @@ import { BackgroundComponent } from './components/background/background.componen
 import { MatTableModule } from '@angular/material/table'
 import { DiseaseListComponent } from './components/personal-info-view/disease-list/disease-list.component'
 import { MatButtonModule } from '@angular/material/button'
+import { MatStepperModule } from '@angular/material/stepper'
+import { MatSelectModule } from '@angular/material/select'
+import { MatDividerModule } from '@angular/material/divider'
 
 
 const angularMaterialModules = [
@@ -62,7 +65,7 @@ const angularMaterialModules = [
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FormsModule, ReactiveFormsModule, CommonModule, MatButtonModule,
+    FormsModule, ReactiveFormsModule, CommonModule, MatButtonModule, MatStepperModule, MatSelectModule, MatDividerModule,
   ],
 
   providers: [
