@@ -33,6 +33,8 @@ import { DiseaseListComponent } from './components/personal-info-view/disease-li
 import { MatButtonModule } from '@angular/material/button'
 import { MatStepperModule } from '@angular/material/stepper'
 import { MatSelectModule } from '@angular/material/select'
+import { AllergyListComponent } from './components/personal-info-view/allergy-list/allergy-list.component'
+import { MedicationInTakeListComponent } from './components/personal-info-view/medication-in-take-list/medication-in-take-list.component'
 import { MatDividerModule } from '@angular/material/divider'
 
 
@@ -56,6 +58,8 @@ const angularMaterialModules = [
     DiseaseListComponent,
     NewRegistrationComponent,
     ResetPasswordComponent,
+    AllergyListComponent,
+    MedicationInTakeListComponent,
     BackgroundComponent
   ],
 

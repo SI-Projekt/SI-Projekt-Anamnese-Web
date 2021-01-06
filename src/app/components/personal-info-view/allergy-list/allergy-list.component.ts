@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core'
-
 // @ts-ignore
 import personsJson from '../../../shared/data/person-list.json'
 import { IPerson } from '../../../model/person.interface'
-@Component({
-  selector: 'app-disease-list',
-  templateUrl: './disease-list.component.html',
-  styleUrls: ['./disease-list.component.css']
-})
-export class DiseaseListComponent implements OnInit {
 
-  displayedColumns: string[] = ['#', 'patient', 'undergoneSurgery', 'surgeryReason', 'surgeries', 'action']
-  diseaseList: any
+@Component({
+  selector: 'app-allergy-list',
+  templateUrl: './allergy-list.component.html',
+  styleUrls: ['./allergy-list.component.css']
+})
+export class AllergyListComponent implements OnInit {
+
+  displayedColumns: string[] = ['#', 'patient', 'name', 'action']
+  allergyList: any
 
   constructor() {
   }
@@ -25,7 +25,7 @@ export class DiseaseListComponent implements OnInit {
   }
 
   private getDisease(): void {
-    this.diseaseList = personsJson.filter(
+    this.allergyList = personsJson.filter(
       (person: IPerson) => person.type === 'patient')
   }
 

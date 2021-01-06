@@ -43,7 +43,7 @@
   <p>Was möchten Sie als nächstes tun???</p>
 
   <div class="card-container" style="margin-top: 50px">
-    <a class="card" rel="noopener" routerLink="{{personal_info_view_path}}" style="margin-right: 10px">
+    <a class="card" rel="noopener" (click)="navTo('patienten')" style="margin-right: 10px">
       <img class="material-icons" style="margin-right: 7px"
            height="24" viewBox="0 0 24 24" width="24"
            src="../../../assets/logos/patient-logo.png">
@@ -55,7 +55,7 @@
       </svg>
     </a>
 
-    <a class="card" href="{{personal_info_view_path}}" routerLink="{{personal_info_view_path}}">
+    <a class="card" (click)="navTo('diagnose')" style="margin-right: 10px">
       <img class="material-icons" style="margin-right: 7px"
            height="24" viewBox="0 0 24 24" width="24"
            src="../../../assets/logos/diagnose.jpg">
@@ -67,7 +67,7 @@
       </svg>
     </a>
 
-    <a class="card" href="{{personal_info_view_path}}" routerLink="{{personal_info_view_path}}">
+    <a class="card" (click)="navTo('krankheiten')" style="margin-right: 10px">
       <img class="material-icons" style="margin-right: 7px"
            height="24" viewBox="0 0 24 24" width="24"
            src="../../../assets/logos/disease.png">
@@ -81,7 +81,7 @@
 
     <div class="card-container" style="margin-top: 50px">
 
-      <a class="card" href="{{personal_info_view_path}}" routerLink="{{personal_info_view_path}}">
+      <a class="card" (click)="navTo('allergien')" style="margin-right: 10px">
         <img class="material-icons" style="margin-right: 7px"
              height="24" viewBox="0 0 24 24" width="24"
              src="../../../assets/logos/allergie.png">
@@ -93,7 +93,7 @@
         </svg>
       </a>
 
-      <a class="card" href="{{personal_info_view_path}}" routerLink="{{personal_info_view_path}}">
+      <a class="card" (click)="navTo('medikamenten')" style="margin-right: 10px">
       <img class="material-icons" style="margin-right: 7px"
            height="24" viewBox="0 0 24 24" width="24"
            src="../../../assets/logos/medikamente.png">

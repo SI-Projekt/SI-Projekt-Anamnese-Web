@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { rootingPath } from '../../shared/rooting-path'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-home-personal',
@@ -10,12 +11,18 @@ export class HomePersonalComponent implements OnInit {
   readonly headerTitle: string = 'Administration - Home'
   readonly personal_info_view_path: string
 
-  constructor() {
+  constructor(
+    private router: Router
+  ) {
     this.headerTitle = 'Administration - Home'
     this.personal_info_view_path = '/' + rootingPath.personal_info_view
   }
 
   ngOnInit(): void {
+  }
+
+  navTo(tabName: string): void {
+    this.router.navigate([this.personal_info_view_path, {fragment: tabName}])
   }
 
 }
