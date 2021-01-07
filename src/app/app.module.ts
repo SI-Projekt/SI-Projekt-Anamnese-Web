@@ -35,12 +35,14 @@ import { MatStepperModule } from '@angular/material/stepper'
 import { MatSelectModule } from '@angular/material/select'
 import { AllergyListComponent } from './components/personal-info-view/allergy-list/allergy-list.component'
 import { MedicationInTakeListComponent } from './components/personal-info-view/medication-in-take-list/medication-in-take-list.component'
+import { MyProfileModalComponent } from './components/home-patient/my-profile-modal/my-profile-modal.component'
+import { MatDialogModule } from '@angular/material/dialog'
 import { MatDividerModule } from '@angular/material/divider'
 
 
 const angularMaterialModules = [
   MatFormFieldModule, MatInputModule, MatIconModule, MatCardModule, MatSnackBarModule,
-  MatTooltipModule, MatTabsModule, MatTableModule
+  MatTooltipModule, MatTabsModule, MatTableModule, MatButtonModule, MatDialogModule
 ]
 
 @NgModule({
@@ -60,7 +62,8 @@ const angularMaterialModules = [
     ResetPasswordComponent,
     AllergyListComponent,
     MedicationInTakeListComponent,
-    BackgroundComponent
+    BackgroundComponent,
+    MyProfileModalComponent
   ],
 
   imports: [
@@ -70,12 +73,14 @@ const angularMaterialModules = [
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule, ReactiveFormsModule, CommonModule, MatButtonModule, MatStepperModule, MatSelectModule, MatDividerModule,
+    FormsModule, ReactiveFormsModule, CommonModule, MatDividerModule,
   ],
 
   providers: [
     angularMaterialModules,
     LoginService,
-    AppConfigService
+    AppConfigService,
+    MyProfileModalComponent
   ],
 
   bootstrap: [AppComponent]

@@ -5,6 +5,8 @@ import { rootingPath } from '../../shared/rooting-path'
 import personsJson from '../../shared/data/person-list.json'
 import { SessionService } from '../../core/authentification-and-authority/session.service'
 import { IPerson } from '../../model/person.interface'
+import { MyProfileModalComponent } from './my-profile-modal/my-profile-modal.component'
+import { MatDialog } from '@angular/material/dialog'
 
 @Component({
   selector: 'app-home-patient',
@@ -19,6 +21,7 @@ export class HomePatientComponent implements OnInit {
   readonly patient_info_view_path: string
 
   constructor(
+    public dialog: MatDialog,
     private sessionService: SessionService
   ) {
     this.aufnahme_path = '/' + rootingPath.aufnahme
@@ -30,6 +33,16 @@ export class HomePatientComponent implements OnInit {
   }
 
   openMyProfilModal(): void {
+    this.currentUser.address = {country: null, city: null, postalCode: null, streetAndNumber: null}
+    const dialogRef = this.dialog.open(MyProfileModalComponent, {
+      width: '750px',
+      data: this.currentUser
+    })
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed')
+      // this.animal = result
+    })
   }
 
   private getCurrentUser(): void {
