@@ -38,6 +38,10 @@ import { MedicationInTakeListComponent } from './components/personal-info-view/m
 import { MyProfileModalComponent } from './components/home-patient/my-profile-modal/my-profile-modal.component'
 import { MatDialogModule } from '@angular/material/dialog'
 import { MatDividerModule } from '@angular/material/divider'
+import { AllergyListPatientComponent } from './components/patient-info-view/allergy-list-Patient/allergy-list-patient.component'
+import { DiagnosisListPatientComponent } from './components/patient-info-view/diagnosis-list-patient/diagnosis-list-patient.component'
+import { DiseaseListPatientComponent } from './components/patient-info-view/disease-list-patient/disease-list-patient.component'
+import { MedicationInTakeListPatientComponent } from './components/patient-info-view/medication-in-take-list-patient/medication-in-take-list-patient.component'
 
 
 const angularMaterialModules = [
@@ -63,7 +67,11 @@ const angularMaterialModules = [
     AllergyListComponent,
     MedicationInTakeListComponent,
     BackgroundComponent,
-    MyProfileModalComponent
+    MyProfileModalComponent,
+    AllergyListPatientComponent,
+    DiagnosisListPatientComponent,
+    DiseaseListPatientComponent,
+    MedicationInTakeListPatientComponent
   ],
 
   imports: [
