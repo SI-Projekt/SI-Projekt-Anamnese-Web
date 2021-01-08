@@ -7,6 +7,7 @@ import { SessionService } from '../../core/authentification-and-authority/sessio
 import { IPerson } from '../../model/person.interface'
 import { MyProfileModalComponent } from './my-profile-modal/my-profile-modal.component'
 import { MatDialog } from '@angular/material/dialog'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-home-patient',
@@ -14,13 +15,14 @@ import { MatDialog } from '@angular/material/dialog'
   styleUrls: ['./home-patient.component.css']
 })
 export class HomePatientComponent implements OnInit {
+
   headerTitle: string = 'Home - Willkomen!'
   currentUser: IPerson = <IPerson>{}
-
   readonly aufnahme_path: string
   readonly patient_info_view_path: string
 
   constructor(
+    private router: Router,
     public dialog: MatDialog,
     private sessionService: SessionService
   ) {
@@ -43,6 +45,10 @@ export class HomePatientComponent implements OnInit {
       console.log('The dialog was closed')
       // this.animal = result
     })
+  }
+
+  navTo(tabName: string): void {
+    this.router.navigate([this.patient_info_view_path, {fragment: tabName}])
   }
 
   private getCurrentUser(): void {

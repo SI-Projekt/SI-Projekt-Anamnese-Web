@@ -81,7 +81,7 @@
         </svg>
       </a>
 
-      <a *ngIf="currentUser.recorded" class="card" href="{{patient_info_view_path}}"
+      <a *ngIf="currentUser.recorded" class="card" (click)="navTo('diagnose')"
          routerLink="{{patient_info_view_path}}" style="margin-right: 10px; margin-bottom: 50px">
         <img class="material-icons" style="margin-right: 7px"
              height="24" viewBox="0 0 24 24" width="24"
@@ -94,7 +94,7 @@
         </svg>
       </a>
 
-      <a *ngIf="currentUser.recorded" class="card" href="{{patient_info_view_path}}"
+      <a *ngIf="currentUser.recorded" class="card" (click)="navTo('krankheiten')"
          routerLink="{{patient_info_view_path}}" style="margin-right: 10px; margin-bottom: 50px">
         <img class="material-icons" style="margin-right: 7px"
              height="24" viewBox="0 0 24 24" width="24"
@@ -107,7 +107,7 @@
         </svg>
       </a>
 
-      <a *ngIf="currentUser.recorded" class="card" href="{{patient_info_view_path}}"
+      <a *ngIf="currentUser.recorded" class="card" (click)="navTo('allergien')"
          routerLink="{{patient_info_view_path}}" style="margin-right: 10px; margin-bottom: 50px">
         <img class="material-icons" style="margin-right: 7px"
              height="24" viewBox="0 0 24 24" width="24"
@@ -120,7 +120,7 @@
         </svg>
       </a>
 
-      <a *ngIf="currentUser.recorded" class="card" href="{{patient_info_view_path}}"
+      <a *ngIf="currentUser.recorded" class="card" (click)="navTo('medikamenten')"
          routerLink="{{patient_info_view_path}}" style="margin-right: 10px; margin-bottom: 50px">
         <img class="material-icons" style="margin-right: 7px"
              height="24" viewBox="0 0 24 24" width="24"
