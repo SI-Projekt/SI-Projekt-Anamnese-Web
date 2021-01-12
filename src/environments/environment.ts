@@ -7,7 +7,7 @@ export const environment = {
 
   // Paths:
   // baseUrl: 'http://54.145.7.15:8080', // server
-  // baseUrl: 'http://18.234.232.22:8080', // rds
+  // baseUrl: 'http://ec2-3-84-206-109.compute-1.amazonaws.com:8080', // rds
   baseUrl: 'http://localhost:8080' // local
 
 }

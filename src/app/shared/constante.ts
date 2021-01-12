@@ -3,6 +3,30 @@ export const constant = {
   personal: 'personal'
 }
 
+export const geheimfragen = {
+  values: [
+    'In welcher Straße sind Sie aufgewachsen?',
+    'Wie lautet der Mädchenname Ihrer Mutter?',
+    'Was war der Name Ihres Haustiers aus der Kindheit?',
+    'Wo haben Sie die Grundschule besucht?',
+    'Wie lautete der Name Ihres besten Freundes, als Sie aufwuchsen?'
+  ]
+}
+
+export const maritalStatusValues = {
+  single: 'Single',
+  civil_union: 'Lebensgemeinschaft',
+  married: 'Verheiratet',
+  divorced: 'Geschieden',
+  widowed: 'verwitwet',
+  all: ['Single', 'Lebensgemeinschaft', 'Verheiratet', 'Geschieden', 'verwitwet']
+}
+
+export const genderConstants = {
+  man: 'M',
+  woman: 'W'
+}
+
 export const illnessValues = {
   blood_coagulation_disorder: 'Blutgerinnungsstörung',
   ear_disease: 'Ohrerkrankung',

@@ -19,6 +19,7 @@ export class PersonalInfoViewComponent implements OnInit {
   readonly krankheiten: string = 'krankheiten'
   readonly allergien: string = 'allergien'
   readonly medikamenten: string = 'medikamenten'
+  readonly personType: Array<string> = ['personal', 'patient']
 
   patientsList: Array<IPerson> = []
   tabIndex: number

@@ -20,7 +20,38 @@ export interface IPerson {
   gender?: string
   height?: number
   weight?: number
-  allergies?: Array<string>
+  allergies?: Array<IAllergy>
+
+  type?: string
+  recorded?: boolean
+}
+export interface IPersonTO {
+  userName: string
+  password?: string
+
+  // Security:
+  secretQuestion: string
+  answer?: string
+
+  firstName?: string
+  lastName?: string
+  profession?: string
+
+  // Address:
+  streetAndNumber?: string
+  postalCode?: string
+  country?: string
+  city?: string
+
+  phoneNumber?: string
+  email?: string
+  maritalStatus?: string
+  children?: boolean
+
+  gender?: string
+  height?: number
+  weight?: number
+  allergyNames?: Array<string>
 
   type?: string
   recorded?: boolean

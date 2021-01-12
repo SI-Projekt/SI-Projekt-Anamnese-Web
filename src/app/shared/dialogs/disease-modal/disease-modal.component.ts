@@ -52,12 +52,12 @@ export class DiseaseModalComponent implements OnInit {
 
     if (this.receivedData.update && this.receivedData.update.id) {
       this.editedMod = true
-      this.modalTitle = 'Edit Krankheit'
+      this.modalTitle = 'Erkrankung bearbeiten'
       this.disease = this.receivedData.update
       this.preExistingIllnessesList = this.disease.preExistingIllnesses
     } else {
       this.editedMod = false
-      this.modalTitle = 'New Krankheit'
+      this.modalTitle = 'Neue Erkrankung'
     }
 
     this.listIllnesses()
@@ -196,10 +196,14 @@ export class DiseaseModalComponent implements OnInit {
   }
 
   private getPatient(): IPerson {
-    if (this.disease && this.disease.person) {
-      return this.disease.person
+    if (this.receivedData.parent === 'patient') {
+      return this.receivedData.patient
     } else {
-      return null
+      if (this.disease && this.disease.person) {
+        return this.disease.person
+      } else {
+        return null
+      }
     }
   }
 
