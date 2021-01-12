@@ -70,17 +70,17 @@ export class LogInComponent implements OnInit {
 
   private getConnectedUser(userId: uuid): void {
     this.personService.getOne(userId).subscribe((person: IPerson) => {
-      if (person && person.id) {
-        this.toDashboard(person.type.toLowerCase())
-      }
-    },
+        if (person && person.id) {
+          this.toDashboard(person.type.toLowerCase())
+        }
+      },
       err => {
         console.log('Error in LoginComponent.getConnectedUser()')
         console.log(err)
         this.snackBar.open('Could not get current connected user', 'Close', {
           duration: 4000
         })
-    })
+      })
   }
 
   /*** to go to the dashboard ***/
