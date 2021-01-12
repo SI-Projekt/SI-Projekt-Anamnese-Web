@@ -5,6 +5,7 @@ import { rootingPath } from '../../../shared/rooting-path'
 import personsJson from '../../../shared/data/person-list.json'
 import { IPerson } from '../../../model/person.interface'
 import { MatSnackBar } from '@angular/material/snack-bar'
+import { environment } from '../../../../environments/environment'
 
 @Component({
   selector: 'app-reset-password',
@@ -23,11 +24,13 @@ export class ResetPasswordComponent implements OnInit {
   newPassword: string
 
   readonly login_path: string
+  readonly currentEnvironment: string
 
   constructor(
     private snackBar: MatSnackBar
   ) {
     this.login_path = rootingPath.login
+    this.currentEnvironment = environment.currentEnvironment
   }
 
   ngOnInit(): void {

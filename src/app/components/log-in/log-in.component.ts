@@ -7,6 +7,7 @@ import { IPerson } from '../../model/person.interface'
 import { rootingPath } from '../../shared/rooting-path'
 import { v4 as uuid } from 'uuid'
 import { PersonService } from '../services/person.service'
+import { environment } from '../../../environments/environment'
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -23,6 +24,7 @@ export class LogInComponent implements OnInit {
 
   readonly new_registration_path: string
   readonly reset_password_path: string
+  readonly currentEnvironment: string
 
   constructor(
     private router: Router,
@@ -31,6 +33,7 @@ export class LogInComponent implements OnInit {
     private personService: PersonService,
     private snackBar: MatSnackBar,
   ) {
+    this.currentEnvironment = environment.currentEnvironment
     this.new_registration_path = '/' + rootingPath.new_registration
     this.reset_password_path = '/' + rootingPath.reset_password
   }

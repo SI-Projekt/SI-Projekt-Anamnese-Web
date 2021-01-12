@@ -67,3 +67,7 @@ export interface IAllergy {
   name: string,
   id: uuid,
 }
+
+export interface IResetPasswordTO {
+  password: string
+}

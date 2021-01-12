@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core'
+import { environment } from '../../../environments/environment'
 
 @Component({
   selector: 'app-background',
@@ -6,11 +7,10 @@ import { Component, OnInit } from '@angular/core'
   styleUrls: ['./background.component.css']
 })
 export class BackgroundComponent implements OnInit {
+  readonly currentEnvironment: string
 
-  constructor() {
-  }
+  constructor() { this.currentEnvironment = environment.currentEnvironment }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
 }
