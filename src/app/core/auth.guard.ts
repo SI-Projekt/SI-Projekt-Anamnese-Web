@@ -2,13 +2,10 @@ import { Injectable } from '@angular/core'
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router'
 
 import { SessionService } from './authentification-and-authority/session.service'
+// tslint:disable-next-line:import-blacklist
 import { Observable } from 'rxjs'
 
-/**
- *
- * @author Steve Ngalamo (Software Developer Intern)
- *
- */
+
 @Injectable()
 export class AuthGuard implements CanActivate {
     constructor(private router: Router, private auth: SessionService) {

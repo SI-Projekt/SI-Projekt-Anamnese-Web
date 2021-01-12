@@ -6,7 +6,8 @@ export const environment = {
   production: false,
 
   // Paths:
-  baseUrl: 'http://localhost:...',
-  baseUrlLocal: 'http://localhost:...'
+  // baseUrl: 'http://54.145.7.15:8080', // server
+  // baseUrl: 'http://18.234.232.22:8080', // rds
+  baseUrl: 'http://localhost:8080' // local
 
 }

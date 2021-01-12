@@ -1,17 +1,10 @@
 import { Injectable } from '@angular/core'
 
-/**
- *
- * @author Steve Ngalamo (Software Developer Intern)
- *
- */
 
 @Injectable({providedIn: 'root'})
 export class SessionService {
   private authTokenKey: string = 'authToken'
   private usernameKey: string = 'username'
-  private firstNameKey: string = 'firstname'
-  private lastNameKey: string = 'lastname'
   private userIdKey: string = 'userId'
   private personTypeKey: string = 'personType'
 
@@ -22,9 +15,8 @@ export class SessionService {
 
   /*** to set the session ***/
   setSession(session: any, username: string): void {
-    this.setToken(session.token)
-    this.setFirstName(session.user.first)
-    this.setLastName(session.user.last)
+    this.setToken(session.access_token)
+    this.setUserId(session.id)
     this.setUsername(username)
   }
 
@@ -55,24 +47,6 @@ export class SessionService {
 
   getUsername(): any {
     return sessionStorage.getItem(this.usernameKey)
-  }
-
-  /*** about the firstName ***/
-  setFirstName(firstName: string): void {
-    sessionStorage.setItem(this.firstNameKey, firstName)
-  }
-
-  getFirstName(): any {
-    return sessionStorage.getItem(this.firstNameKey)
-  }
-
-  /*** about the lastName ***/
-  setLastName(lastName: string): void {
-    sessionStorage.setItem(this.lastNameKey, lastName)
-  }
-
-  getLastName(): any {
-    return sessionStorage.getItem(this.lastNameKey)
   }
 
   /*** about the userId ***/

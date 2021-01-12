@@ -1,8 +1,4 @@
-/**
- *
- * @author Steve Ngalamo (Software Developer Intern)
- *
- */
+
 export interface EnvConfig {
     baseUrl?: string
     baseUrlLocal?: string

@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser'
 import { NgModule } from '@angular/core'
 
-import { AppRoutingModule } from './app-routing.module'
-import { AppComponent } from './app.component'
+import { BackgroundComponent } from './components/background/background.component'
+import { MatTabsModule } from '@angular/material/tabs'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { AdmissionComponent } from './components/admission/admission.component'
 import { HomePatientComponent } from './components/home-patient/home-patient.component'
@@ -13,7 +13,7 @@ import { MatIconModule } from '@angular/material/icon'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { MatCardModule } from '@angular/material/card'
 import { LoginService } from './components/log-in/login.service'
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { AppConfigService } from './core/app-config.service'
 import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { CommonModule } from '@angular/common'
@@ -22,12 +22,12 @@ import { HomePersonalComponent } from './components/home-personal/home-personal.
 import { MatTooltipModule } from '@angular/material/tooltip'
 import { PatientInfoViewComponent } from './components/patient-info-view/patient-info-view.component'
 import { PersonalInfoViewComponent } from './components/personal-info-view/personal-info-view.component'
-import { MatTabsModule } from '@angular/material/tabs'
-import { PatientListComponent } from './components/personal-info-view/patient-list/patient-list.component'
+import { AppComponent } from './app.component'
+import { AppRoutingModule } from './app-routing.module'
 import { DiagnosisListComponent } from './components/personal-info-view/diagnosis-list/diagnosis-list.component'
 import { NewRegistrationComponent } from './components/log-in/new-registration/new-registration.component'
+import { PersonListComponent } from './components/personal-info-view/person-list/person-list.component'
 import { ResetPasswordComponent } from './components/log-in/reset-password/reset-password.component'
-import { BackgroundComponent } from './components/background/background.component'
 import { MatTableModule } from '@angular/material/table'
 import { DiseaseListComponent } from './components/personal-info-view/disease-list/disease-list.component'
 import { MatButtonModule } from '@angular/material/button'
@@ -42,11 +42,29 @@ import { AllergyListPatientComponent } from './components/patient-info-view/alle
 import { DiagnosisListPatientComponent } from './components/patient-info-view/diagnosis-list-patient/diagnosis-list-patient.component'
 import { DiseaseListPatientComponent } from './components/patient-info-view/disease-list-patient/disease-list-patient.component'
 import { MedicationInTakeListPatientComponent } from './components/patient-info-view/medication-in-take-list-patient/medication-in-take-list-patient.component'
+import { AuthInterceptor } from './core/authentification-and-authority/auth.Interceptor'
+import { AuthGuard } from './core/auth.guard'
+import { NewRegistrationStepperComponent } from './components/log-in/new-registration/new-registration-stepper/new-registration-stepper.component'
+import { DeleteConfirmationComponent } from './shared/dialogs/delete-confirmation-modal/delete-confirmation.component'
+import { ConfirmationComponent } from './shared/dialogs/confirmation-modal/confirmation.component'
+import { AllergyModalComponent } from './shared/dialogs/allergy-modal/allergy-modal.component'
+import { DiagnosisModalComponent } from './shared/dialogs/diagnosis-modal/diagnosis-modal.component'
+import { DiseaseModalComponent } from './shared/dialogs/disease-modal/disease-modal.component'
+import { MedicationInTakeModalComponent } from './shared/dialogs/medication-in-take-modal/medication-in-take-modal.component'
+import { StartNewRegistrationModalComponent } from './shared/dialogs/start-new-registration-modal/start-new-registration-modal.component'
+import { PersonViewComponent } from './components/patient-info-view/person-view/person-view.component'
+import { MatDatepickerModule } from '@angular/material/datepicker'
+import { MatNativeDateModule } from '@angular/material/core'
+import { MatSlideToggleModule } from '@angular/material/slide-toggle'
+import { MatButtonToggleModule } from '@angular/material/button-toggle'
+import { MatAutocompleteModule } from '@angular/material/autocomplete'
 
 
 const angularMaterialModules = [
   MatFormFieldModule, MatInputModule, MatIconModule, MatCardModule, MatSnackBarModule,
-  MatTooltipModule, MatTabsModule, MatTableModule, MatButtonModule, MatDialogModule
+  MatTooltipModule, MatTabsModule, MatTableModule, MatButtonModule, MatDialogModule,
+  MatStepperModule, MatSelectModule, MatDividerModule, MatDatepickerModule,
+  MatNativeDateModule, MatSlideToggleModule, MatButtonToggleModule, MatAutocompleteModule,
 ]
 
 @NgModule({
@@ -59,7 +77,7 @@ const angularMaterialModules = [
     HomePersonalComponent,
     PatientInfoViewComponent,
     PersonalInfoViewComponent,
-    PatientListComponent,
+    PersonListComponent,
     DiagnosisListComponent,
     DiseaseListComponent,
     NewRegistrationComponent,
@@ -71,7 +89,16 @@ const angularMaterialModules = [
     AllergyListPatientComponent,
     DiagnosisListPatientComponent,
     DiseaseListPatientComponent,
-    MedicationInTakeListPatientComponent
+    MedicationInTakeListPatientComponent,
+    NewRegistrationStepperComponent,
+    DeleteConfirmationComponent,
+    ConfirmationComponent,
+    AllergyModalComponent,
+    DiagnosisModalComponent,
+    DiseaseModalComponent,
+    MedicationInTakeModalComponent,
+    StartNewRegistrationModalComponent,
+    PersonViewComponent
   ],
 
   imports: [
@@ -80,15 +107,28 @@ const angularMaterialModules = [
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FormsModule, ReactiveFormsModule, CommonModule, MatButtonModule, MatStepperModule, MatSelectModule, MatDividerModule,
-    FormsModule, ReactiveFormsModule, CommonModule, MatDividerModule,
+    FormsModule, ReactiveFormsModule, CommonModule
   ],
 
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
     angularMaterialModules,
     LoginService,
     AppConfigService,
-    MyProfileModalComponent
+    AuthGuard,
+
+  ],
+
+  entryComponents: [
+    MyProfileModalComponent,
+    ConfirmationComponent,
+    DeleteConfirmationComponent,
+    MyProfileModalComponent,
+    NewRegistrationComponent
   ],
 
   bootstrap: [AppComponent]

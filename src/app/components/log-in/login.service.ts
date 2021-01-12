@@ -7,18 +7,14 @@ import { AppConfigService } from '../../core/app-config.service'
 // tslint:disable-next-line:import-blacklist
 import { Observable } from 'rxjs'
 
-/**
- *
- * @author Steve Ngalamo (Software Developer Intern)
- *
- */
+
 
 @Injectable({providedIn: 'root'})
 export class LoginService {
 
     private tokenRequest: Observable<any>
     private readonly authUrl: string
-    private readonly resetPwdUrl: string
+    // private readonly resetPwdUrl: string
 
     constructor(
         private httpClient: HttpClient,
@@ -27,7 +23,7 @@ export class LoginService {
         private sessionService: SessionService,
     ) {
         this.authUrl = appConfig.getAuthenticationPath
-        this.resetPwdUrl = this.appConfig.getAuthUrl + '/password_reset'
+        // this.resetPwdUrl = this.appConfig.getAuthUrl + '/password_reset'
     }
 
     /*** to log in ***/
@@ -56,17 +52,17 @@ export class LoginService {
         )
     }
 
-    createPasswordReset(username: string): Observable<any> {
-        const headers = new HttpHeaders().append('Content-Type', 'application/json')
-        return this.httpClient.post<any>(
-            this.resetPwdUrl, '{"username": "' + username + '"}', { headers: headers })
-    }
-
-    setNewPassword(id: string, password: string): Observable<any> {
-        const headers = new HttpHeaders().append('Content-Type', 'application/json')
-        return this.httpClient.put<any>(
-            this.resetPwdUrl + '/' + id, '{"password": "' + password + '"}', { headers: headers })
-    }
+    // createPasswordReset(username: string): Observable<any> {
+    //     const headers = new HttpHeaders().append('Content-Type', 'application/json')
+    //     return this.httpClient.post<any>(
+    //         this.resetPwdUrl, '{"username": "' + username + '"}', { headers: headers })
+    // }
+    //
+    // setNewPassword(id: string, password: string): Observable<any> {
+    //     const headers = new HttpHeaders().append('Content-Type', 'application/json')
+    //     return this.httpClient.put<any>(
+    //         this.resetPwdUrl + '/' + id, '{"password": "' + password + '"}', { headers: headers })
+    // }
 
 }
 

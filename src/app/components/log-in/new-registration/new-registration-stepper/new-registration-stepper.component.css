@@ -1,0 +1,19 @@
+/*** class ***/
+.colorEdit {
+  color: #337ab7;
+}
+
+.log-in-form-field {
+  width: 100%;
+}
+
+/* about stepper */
+.mat-stepper-horizontal {
+  margin-top: 8px;
+}
+
+.mat-form-field {
+  margin-top: 16px;
+  margin-right: 16px;
+}
+

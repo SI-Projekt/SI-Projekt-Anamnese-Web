@@ -5,7 +5,6 @@ import { RouterTestingModule } from '@angular/router/testing'
 import { HttpClientTestingModule } from '@angular/common/http/testing'
 import { LoginService } from './login.service'
 import { SessionService } from '../../core/authentification-and-authority/session.service'
-import { AuthorityService } from '../../core/authentification-and-authority/authority.service'
 import { AppConfigService } from '../../core/app-config.service'
 import { MatCardModule } from '@angular/material/card'
 import { MatTabsModule } from '@angular/material/tabs'
@@ -26,7 +25,7 @@ describe('LogInComponent', () => {
       ],
       declarations: [LogInComponent],
       providers: [
-        LoginService, SessionService, AuthorityService, AppConfigService
+        LoginService, SessionService, AppConfigService
       ],
     })
       .compileComponents()

@@ -8,16 +8,19 @@ import { IPerson } from '../../../model/person.interface'
   styleUrls: ['./my-profile-modal.component.css']
 })
 export class MyProfileModalComponent implements OnInit {
-
-  changeDisabled: boolean = true
+  editMode: boolean = false
+  person: IPerson = <IPerson>{}
+  modalTitle: string = ''
 
   constructor(
     public dialogRef: MatDialogRef<MyProfileModalComponent>,
-    @Inject(MAT_DIALOG_DATA) public receivedData: IPerson
-  ) {
-  }
+    @Inject(MAT_DIALOG_DATA) public receivedData: any
+  ) { }
 
   ngOnInit(): void {
+    this.person = this.receivedData.person
+    this.receivedData.personType === 'personal'
+      ? this.modalTitle = 'Pernalsprofil' : this.modalTitle = 'Mein Profil'
   }
 
   onNoClick(): void {
@@ -26,7 +29,7 @@ export class MyProfileModalComponent implements OnInit {
 
   onFormSubmit(): void {
     console.log(this.receivedData)
-    this.changeDisabled = true
+    this.editMode = false
   }
 
 }
