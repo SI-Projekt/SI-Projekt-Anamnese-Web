@@ -8,6 +8,7 @@ import { IDeleteConfirmation } from '../../../model/delete-confirmation.interfac
 import { IDisease } from '../../../model/disease.interface'
 import { DiseaseModalComponent } from '../../../shared/dialogs/disease-modal/disease-modal.component'
 import { IPerson } from '../../../model/person.interface'
+import { IllnessService } from '../../services/illness.service'
 
 @Component({
   selector: 'app-disease-list',
