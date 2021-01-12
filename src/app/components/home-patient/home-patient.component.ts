@@ -9,6 +9,7 @@ import { Router } from '@angular/router'
 import { IAddress } from '../../model/address.interface'
 import { PersonService } from '../services/person.service'
 import { MatSnackBar } from '@angular/material/snack-bar'
+import { environment } from '../../../environments/environment'
 
 @Component({
   selector: 'app-home-patient',
@@ -21,6 +22,7 @@ export class HomePatientComponent implements OnInit {
 
   readonly aufnahme_path: string
   readonly patient_info_view_path: string
+  readonly currentEnvironment: string
 
   constructor(
     private router: Router,
@@ -31,6 +33,7 @@ export class HomePatientComponent implements OnInit {
   ) {
     this.aufnahme_path = '/' + rootingPath.aufnahme
     this.patient_info_view_path = '/' + rootingPath.patient_info_view
+    this.currentEnvironment = environment.currentEnvironment
   }
 
   ngOnInit(): void {

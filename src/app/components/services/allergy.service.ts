@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core'
 import { HttpClient, HttpParams } from '@angular/common/http'
 import { map } from 'rxjs/operators'
 import { v4 as uuid } from 'uuid'
-import { IAllergy } from '../../model/person.interface'
+import { IAllergy, IAllergyTO } from '../../model/person.interface'
 import { AppConfigService } from '../../core/app-config.service'
 
 
@@ -10,6 +10,7 @@ import { AppConfigService } from '../../core/app-config.service'
 export class AllergyService {
   private readonly allergyUrl: string
   private readonly allergyItemUrl: string
+  private readonly personItemUrl: string
 
   constructor(
     private httpClient: HttpClient,
@@ -17,6 +18,7 @@ export class AllergyService {
   ) {
     this.allergyUrl = this.appConfig.getAllergyPath
     this.allergyItemUrl = this.appConfig.getAllergyPath + '/'
+    this.personItemUrl = this.appConfig.getPersonPath + '/'
   }
 
 
@@ -35,8 +37,9 @@ export class AllergyService {
   }
 
   /*** TO ADD A NEW ALLERGY ***/
-  add(allergy: IAllergy): any {
-    return this.httpClient.post(this.allergyUrl, allergy)
+  add(patientId: uuid, allergyTO: IAllergyTO): any {
+    return this.httpClient.post(
+      this.personItemUrl + patientId + '/allergies', allergyTO)
       .pipe(map((res: Response) => res))
   }
 

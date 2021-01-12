@@ -4,9 +4,9 @@
 
 export const environment = {
   production: false,
-  currentEnvironment: 'Local',
+  currentEnvironment: 'AWS',
 
   // Paths:
-  baseUrl: 'http://localhost:8080'
+  baseUrl: 'http://ec2-3-84-206-109.compute-1.amazonaws.com:8080',
 
 }

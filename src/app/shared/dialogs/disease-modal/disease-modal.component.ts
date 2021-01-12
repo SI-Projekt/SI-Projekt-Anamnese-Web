@@ -57,7 +57,7 @@ export class DiseaseModalComponent implements OnInit {
       this.preExistingIllnessesList = this.disease.preExistingIllnesses
     } else {
       this.editedMod = false
-      this.modalTitle = 'Neue Erkrankung'
+      this.modalTitle = 'Neue Erkrankung hinzufügen'
     }
 
     this.listIllnesses()

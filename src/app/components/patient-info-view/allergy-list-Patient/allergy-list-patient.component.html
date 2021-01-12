@@ -31,7 +31,8 @@
       <td *matCellDef="let allergy" mat-cell style="text-align: right">
 
         <!-- Edit button -->
-        <button (click)="onAddNewOrEdit(allergy)" id="edit-button" mat-icon-button matTooltip="Allergietyp editieren">
+        <button (click)="onAddNewOrEdit(allergy)" id="edit-button"
+                mat-icon-button matTooltip="Allergietyp editieren" disabled>
           <mat-icon class="example-tab-icon">edit</mat-icon>
         </button>
 

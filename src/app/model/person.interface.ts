@@ -67,3 +67,12 @@ export interface IAllergy {
   name: string,
   id: uuid,
 }
+
+export interface IAllergyTO {
+  allergies: Array<string>,
+  patientId: uuid,
+}
+
+export interface IResetPasswordTO {
+  password: string
+}

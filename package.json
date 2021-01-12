@@ -4,6 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port 5555",
+    "start.aws": "ng serve --project SI-Projekt-Anamnese-Web --configuration serve-aws --port 5555",
+    "start.local": "ng serve --project SI-Projekt-Anamnese-Web --configuration serve-local --port 5555",
     "build": "ng build",
     "test": "ng test",
     "test.headless": "ng test --watch=false --browsers ChromeHeadless",

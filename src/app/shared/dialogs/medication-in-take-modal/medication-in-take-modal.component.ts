@@ -45,11 +45,11 @@ export class MedicationInTakeModalComponent implements OnInit {
 
     if (this.receivedData.update && this.receivedData.update.id) {
       this.editedMod = true
-      this.modalTitle = 'Edit Medikamenteneinnahme'
+      this.modalTitle = 'Medikamenteneinnahme bearbeiten'
       this.medication = this.receivedData.update
     } else {
       this.editedMod = false
-      this.modalTitle = 'New Medikamenteneinnahme'
+      this.modalTitle = 'Neue Medikamenteneinnahme hinzufügen'
     }
 
     this.formGroupInit()

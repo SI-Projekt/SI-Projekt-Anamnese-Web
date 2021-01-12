@@ -30,9 +30,9 @@ export class AllergyListComponent implements OnInit {
   }
 
   onAddNewOrEdit(allergy?: IAllergy): void {
-    const dialogRef = this.dialog.open(AllergyModalComponent, { // TODO
+    const dialogRef = this.dialog.open(AllergyModalComponent, {
       width: '750px',
-      data: allergy
+      data: {update: allergy, parent: 'personal', patientsList: this.patientsList}
     })
 
     dialogRef.afterClosed().subscribe(result => {
@@ -55,20 +55,6 @@ export class AllergyListComponent implements OnInit {
     })
   }
 
-  private saveOnAddNew(allergy: IAllergy): void {
-    this.allergyService.add(allergy).subscribe(() => {
-        this.listAllergies()
-      },
-      err => {
-        console.log('Error in AllergyComponent.saveAddNewAllergy()')
-        console.log(err)
-        this.snackBar.open('Could not add this allergy', 'Close', {
-          duration: 4000
-        })
-      }
-    )
-  }
-
   private listAllergies(): void {
     this.allergyService.getAll().subscribe((allergies: any) => {
         this.allergyList = allergies
@@ -77,20 +63,6 @@ export class AllergyListComponent implements OnInit {
         console.log('Error in AllergyComponent.listAllergies()')
         console.log(err)
         this.snackBar.open('Could not fetch allergies', 'Close', {
-          duration: 4000
-        })
-      }
-    )
-  }
-
-  private saveOnEdit(allergyId: uuid, update: IAllergy): void {
-    this.allergyService.edit(allergyId, update).subscribe(() => {
-        this.listAllergies()
-      },
-      err => {
-        console.log('Error in AllergyComponent.saveEditAllergy()')
-        console.log(err)
-        this.snackBar.open('Could not edit this allergy', 'Close', {
           duration: 4000
         })
       }
