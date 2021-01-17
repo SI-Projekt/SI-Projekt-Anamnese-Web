@@ -11,7 +11,7 @@ addons:
   chrome: stable
 services:
   - docker
-before_install:
+#before_install:
 #  - docker build -t si-project-web-app-image .
 before_script:
   - export DISPLAY=:99.0
