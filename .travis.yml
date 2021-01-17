@@ -12,12 +12,13 @@ addons:
 services:
   - docker
 before_install:
-  - docker build -t si-project-web-app-image .
+#  - docker build -t si-project-web-app-image .
 before_script:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
   - sleep 3
   - fluxbox >/dev/null 2>&1 &
+  - docker build -t si-project-web-app-image .
 
 
 
