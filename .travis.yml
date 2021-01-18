@@ -21,7 +21,7 @@ before_script:
   - fluxbox >/dev/null 2>&1 &
 
 script:
-  - npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
+  - npm run lint
   - docker run --name si-project-web-app-container -d -p 5555:80 si-project-web-app-image
   #- npm run lint
  # - npm run build
