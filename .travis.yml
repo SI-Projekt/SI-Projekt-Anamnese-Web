@@ -27,7 +27,7 @@ script:
  # - npm run build
 #  - docker run --rm si-project-web-app-image npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
 before_deploy:
-  - pyenv install 3.7.1
+  - pyenv install 3.6
   - pip install -U pip
   - pip install awscli
   # make the script executable
