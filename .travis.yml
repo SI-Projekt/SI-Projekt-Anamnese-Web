@@ -21,7 +21,7 @@ before_script:
   - npm install -g @angular/cli
 script:
   - npm run lint
-  - npm run test #-headless # ou ng test
+  - npm run test
   - ng build  #this can be submitted as environment variable
 
 before_deploy:
@@ -39,6 +39,6 @@ deploy:
   - provider: script
     skip_cleanup: true
     script: deploy_script.sh
-    wait_
+    wait_until_deployed: true
     on:
       branch: issue-21-upload_frontend_to_aws
