@@ -43,10 +43,24 @@
   <p>Was möchten Sie als nächstes tun???</p>
 
   <div class="card-container" style="margin-top: 50px">
-    <a class="card" rel="noopener" (click)="navTo('patienten')" style="margin-right: 10px">
-      <img class="material-icons" style="margin-right: 7px"
-           height="24" viewBox="0 0 24 24" width="24"
-           src="../../../assets/logos/patient-logo.png">
+    <a (click)="navTo('personal-list')" class="card" rel="noopener" style="margin-right: 10px">
+      <img class="material-icons" height="30"
+           src="../../../assets/logos/personal.jpg" style="margin-right: 7px" viewBox="0 0 24 24"
+           width="30">
+
+      <span>Personal</span>
+
+      <svg class="material-icons" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+      </svg>
+    </a>
+  </div>
+
+  <div class="card-container" style="margin-top: 50px">
+    <a (click)="navTo('patienten')" class="card" rel="noopener" style="margin-right: 10px">
+      <img class="material-icons" height="24"
+           src="../../../assets/logos/patient-logo.png" style="margin-right: 7px" viewBox="0 0 24 24"
+           width="24">
 
       <span>Patienten</span>
 
@@ -55,10 +69,10 @@
       </svg>
     </a>
 
-    <a class="card" (click)="navTo('diagnose')" style="margin-right: 10px">
-      <img class="material-icons" style="margin-right: 7px"
-           height="24" viewBox="0 0 24 24" width="24"
-           src="../../../assets/logos/diagnose.jpg">
+    <a (click)="navTo('diagnose')" class="card" style="margin-right: 10px">
+      <img class="material-icons" height="24"
+           src="../../../assets/logos/diagnose.jpg" style="margin-right: 7px" viewBox="0 0 24 24"
+           width="24">
 
       <span>Diagnose</span>
 
@@ -67,10 +81,10 @@
       </svg>
     </a>
 
-    <a class="card" (click)="navTo('krankheiten')" style="margin-right: 10px">
-      <img class="material-icons" style="margin-right: 7px"
-           height="24" viewBox="0 0 24 24" width="24"
-           src="../../../assets/logos/disease.png">
+    <a (click)="navTo('krankheiten')" class="card" style="margin-right: 10px">
+      <img class="material-icons" height="24"
+           src="../../../assets/logos/disease.png" style="margin-right: 7px" viewBox="0 0 24 24"
+           width="24">
 
       <span>Krankheiten</span>
 
@@ -81,10 +95,10 @@
 
     <div class="card-container" style="margin-top: 50px">
 
-      <a class="card" (click)="navTo('allergien')" style="margin-right: 10px">
-        <img class="material-icons" style="margin-right: 7px"
-             height="24" viewBox="0 0 24 24" width="24"
-             src="../../../assets/logos/allergie.png">
+      <a (click)="navTo('allergien')" class="card" style="margin-right: 10px">
+        <img class="material-icons" height="24"
+             src="../../../assets/logos/allergie.png" style="margin-right: 7px" viewBox="0 0 24 24"
+             width="24">
 
         <span>Allergien</span>
 
@@ -93,18 +107,18 @@
         </svg>
       </a>
 
-      <a class="card" (click)="navTo('medikamenten')" style="margin-right: 10px">
-      <img class="material-icons" style="margin-right: 7px"
-           height="24" viewBox="0 0 24 24" width="24"
-           src="../../../assets/logos/medikamente.png">
+      <a (click)="navTo('medikamenten')" class="card" style="margin-right: 10px">
+        <img class="material-icons" height="24"
+             src="../../../assets/logos/medikamente.png" style="margin-right: 7px" viewBox="0 0 24 24"
+             width="24">
 
-      <span>Medikamenten</span>
+        <span>Medikamenten</span>
 
-      <svg class="material-icons" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
-      </svg>
+        <svg class="material-icons" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+        </svg>
       </a>
     </div>
 
-</div>
+  </div>
 </div>

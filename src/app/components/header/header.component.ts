@@ -6,6 +6,7 @@ import { rootingPath } from '../../shared/rooting-path'
 import { constant } from '../../shared/constante'
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
@@ -35,11 +36,7 @@ export class HeaderComponent implements OnInit {
   }
 
   logout(): void {
-    // this.logService.logout()
-
-    this.sessionService.clearSession()
-    console.log('logout successfully')
-    this.router.navigate(['/login'])
+    this.logService.logout()
   }
 
   toHomePage(): void {

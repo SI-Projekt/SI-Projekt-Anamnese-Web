@@ -80,58 +80,61 @@
           <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
         </svg>
       </a>
+  </div>
 
-      <a *ngIf="currentUser.recorded" class="card" (click)="navTo('diagnose')"
-         routerLink="{{patient_info_view_path}}" style="margin-right: 10px; margin-bottom: 50px">
-        <img class="material-icons" style="margin-right: 7px"
-             height="24" viewBox="0 0 24 24" width="24"
-             src="../../../assets/logos/diagnose.jpg">
+  <div class="card-container" style="margin-top: 90px">
 
-        <span>Meine Diagnose</span>
+    <a *ngIf="currentUser.recorded" class="card" (click)="navTo('diagnose')"
+       routerLink="{{patient_info_view_path}}" style="margin-right: 10px; margin-bottom: 50px">
+      <img class="material-icons" style="margin-right: 7px"
+           height="24" viewBox="0 0 24 24" width="24"
+           src="../../../assets/logos/diagnose.jpg">
 
-        <svg class="material-icons" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
-        </svg>
-      </a>
+      <span>Meine Diagnose</span>
 
-      <a *ngIf="currentUser.recorded" class="card" (click)="navTo('krankheiten')"
-         routerLink="{{patient_info_view_path}}" style="margin-right: 10px; margin-bottom: 50px">
-        <img class="material-icons" style="margin-right: 7px"
-             height="24" viewBox="0 0 24 24" width="24"
-             src="../../../assets/logos/disease.png">
+      <svg class="material-icons" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+      </svg>
+    </a>
 
-        <span>Meine Krankheiten</span>
+    <a *ngIf="currentUser.recorded" class="card" (click)="navTo('krankheiten')"
+       routerLink="{{patient_info_view_path}}" style="margin-right: 10px; margin-bottom: 50px">
+      <img class="material-icons" style="margin-right: 7px"
+           height="24" viewBox="0 0 24 24" width="24"
+           src="../../../assets/logos/disease.png">
 
-        <svg class="material-icons" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
-        </svg>
-      </a>
+      <span>Meine Krankheiten</span>
 
-      <a *ngIf="currentUser.recorded" class="card" (click)="navTo('allergien')"
-         routerLink="{{patient_info_view_path}}" style="margin-right: 10px; margin-bottom: 50px">
-        <img class="material-icons" style="margin-right: 7px"
-             height="24" viewBox="0 0 24 24" width="24"
-             src="../../../assets/logos/allergie.png">
+      <svg class="material-icons" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+      </svg>
+    </a>
 
-        <span>Meine Allergien</span>
+    <a *ngIf="currentUser.recorded" class="card" (click)="navTo('allergien')"
+       routerLink="{{patient_info_view_path}}" style="margin-right: 10px; margin-bottom: 50px">
+      <img class="material-icons" style="margin-right: 7px"
+           height="24" viewBox="0 0 24 24" width="24"
+           src="../../../assets/logos/allergie.png">
 
-        <svg class="material-icons" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
-        </svg>
-      </a>
+      <span>Meine Allergien</span>
 
-      <a *ngIf="currentUser.recorded" class="card" (click)="navTo('medikamenten')"
-         routerLink="{{patient_info_view_path}}" style="margin-right: 10px; margin-bottom: 50px">
-        <img class="material-icons" style="margin-right: 7px"
-             height="24" viewBox="0 0 24 24" width="24"
-             src="../../../assets/logos/medikamente.png">
+      <svg class="material-icons" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+      </svg>
+    </a>
 
-        <span>Meine Medikamenten</span>
+    <a *ngIf="currentUser.recorded" class="card" (click)="navTo('medikamenten')"
+       routerLink="{{patient_info_view_path}}" style="margin-right: 10px; margin-bottom: 50px">
+      <img class="material-icons" style="margin-right: 7px"
+           height="24" viewBox="0 0 24 24" width="24"
+           src="../../../assets/logos/medikamente.png">
 
-        <svg class="material-icons" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
-        </svg>
-      </a>
+      <span>Meine Medikamenten</span>
+
+      <svg class="material-icons" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+      </svg>
+    </a>
 
   </div>
 

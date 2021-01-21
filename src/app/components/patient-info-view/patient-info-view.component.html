@@ -1,5 +1,11 @@
 <app-header [title]="headerTitle"></app-header>
 
+
+<!--<app-person-view style="padding: 5 5 5 5"></app-person-view>-->
+
+<!--<mat-divider></mat-divider>-->
+
+
 <mat-tab-group [selectedIndex]="tabIndex" (selectedTabChange)="onTabClicked($event)">
 
   <!-- DIAGNOSIS -->
@@ -10,7 +16,7 @@
            width="24">
       Meine Diagnosen
     </ng-template>
-    <app-diagnosis-list-patient></app-diagnosis-list-patient>
+    <app-diagnosis-list-patient *ngIf="tabIndex === 0"></app-diagnosis-list-patient>
   </mat-tab>
 
   <!-- Disease -->
@@ -21,7 +27,7 @@
            width="24">
       Meine Krankheiten
     </ng-template>
-    <app-disease-list-patient></app-disease-list-patient>
+    <app-disease-list-patient *ngIf="tabIndex === 1" [currentUser]="currentUser"></app-disease-list-patient>
   </mat-tab>
 
   <!-- AllergieTypen -->
@@ -32,7 +38,7 @@
            width="24">
       Meine Allergien
     </ng-template>
-    <app-allergy-list-patient></app-allergy-list-patient>
+    <app-allergy-list-patient *ngIf="tabIndex === 2" [allergyList]="currentUser?.allergies"></app-allergy-list-patient>
   </mat-tab>
 
   <!-- MedicationInTake -->
@@ -43,7 +49,7 @@
            width="24">
       Meine Medikamente
     </ng-template>
-    <app-medication-in-take-list-patient></app-medication-in-take-list-patient>
+    <app-medication-in-take-list-patient *ngIf="tabIndex === 3" [currentUser]="currentUser"></app-medication-in-take-list-patient>
   </mat-tab>
 
 </mat-tab-group>

@@ -1,8 +1,3 @@
-/**
- * general app configuration
- *
- * @author Steve Ngalamo (Software Developer Intern)
- */
 import { environment } from '../../environments/environment'
 import { Injectable } from '@angular/core'
 import { CONFIG, EnvConfig } from '../shared/env.config'
@@ -15,38 +10,52 @@ export class AppConfigService {
     }
 
 
-    // Administration paths:
-
+    // Administration paths:...............................
     public get getBaseUrl(): string {
-        // return environment.baseUrl
-      return ''
+        return environment.baseUrl
     }
 
-    public get getDomainUrl(): string {
-        // return environment.domainUrl
-      return ''
-    }
-
-    public get getCrmUrl(): string {
-        // return environment.crmUrl
-      return ''
-    }
-
-    public get getCrmPath(): string {
-        return this.getBaseUrl + this.getCrmUrl
-    }
-
-    public get getAuthUrl(): string {
-        // return this.getBaseUrl + environment.authUrl
-      return ''
-    }
-
+    // Cessions paths
     public get getAuthenticationPath(): string {
-        return this.getAuthUrl + '/sessions'
+        return this.getBaseUrl + '/sessions'
     }
 
     public get getAuthorityPath(): string {
-        return this.getAuthUrl + '/my/authorities'
+        return this.getBaseUrl + '/my/authorities'
+    }
+
+
+    // DBs paths:.........................................
+    public get getPersonPath(): string {
+      return this.getBaseUrl + '/api/persons'
+    }
+
+    public get getMedicationInTakesPath(): string {
+      return this.getBaseUrl + '/api/medication_in_takes'
+    }
+
+    public get getIllnessesPath(): string {
+      return this.getBaseUrl + '/api/preExistingIllnesses'
+    }
+
+    public get getDiagnosisPath(): string {
+      return this.getBaseUrl + '/api/diagnoses'
+    }
+
+    public get getVegetativeAnamnesisPath(): string {
+      return this.getBaseUrl + '/api/vegetativeAnamnesis'
+    }
+
+    public get getFamilyAnamnesisPath(): string {
+      return this.getBaseUrl + '/api/familyAnamnesis'
+    }
+
+    public get getDiseasesPath(): string {
+      return this.getBaseUrl + '/api/diseases'
+    }
+
+    public get getAllergyPath(): string {
+      return this.getBaseUrl + '/api/allergies'
     }
 
 }

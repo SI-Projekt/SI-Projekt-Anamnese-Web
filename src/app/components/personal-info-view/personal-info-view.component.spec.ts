@@ -9,7 +9,7 @@ import { MatTabsModule } from '@angular/material/tabs'
 import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { MatTableModule } from '@angular/material/table'
-import { PatientListComponent } from './patient-list/patient-list.component'
+import { PersonListComponent } from './person-list/person-list.component'
 import { DiagnosisListComponent } from './diagnosis-list/diagnosis-list.component'
 
 describe('PersonalInfoViewComponent', () => {
@@ -19,7 +19,7 @@ describe('PersonalInfoViewComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [
-        PersonalInfoViewComponent, PatientListComponent, DiagnosisListComponent,
+        PersonalInfoViewComponent, PersonListComponent, DiagnosisListComponent,
       ],
       imports: [MatTableModule],
     })

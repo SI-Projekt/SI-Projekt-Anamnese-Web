@@ -12,32 +12,26 @@
 
     <!-- designation Column -->
     <ng-container matColumnDef="Bezeichnung ">
-      <th *matHeaderCellDef mat-header-cell> Bezeichnung </th>
+      <th *matHeaderCellDef mat-header-cell>Bezeichnung</th>
       <td *matCellDef="let medicationInTake" mat-cell> {{medicationInTake.designation}} </td>
-    </ng-container>
-
-    <!-- bloodDiluent Column -->
-    <ng-container matColumnDef="blutverdünnend ">
-      <th *matHeaderCellDef mat-header-cell> blutverdünnend </th>
-      <td *matCellDef="let medicationInTake" mat-cell> {{medicationInTake.bloodDiluent}} </td>
     </ng-container>
 
     <!-- dosage Column -->
     <ng-container matColumnDef="Dosierung">
-      <th *matHeaderCellDef mat-header-cell> Dosierung</th>
+      <th *matHeaderCellDef mat-header-cell>Dosierung</th>
       <td *matCellDef="let medicationInTake" mat-cell> {{medicationInTake.dosage}} </td>
     </ng-container>
 
     <!-- startDate Column -->
     <ng-container matColumnDef="Startdatum">
-      <th *matHeaderCellDef mat-header-cell> Startdatum</th>
-      <td *matCellDef="let medicationInTake" mat-cell> {{medicationInTake.startDate}} </td>
+      <th *matHeaderCellDef mat-header-cell>Startdatum</th>
+      <td *matCellDef="let medicationInTake" mat-cell> {{medicationInTake.startDate | date : 'dd-mm-yyyy'}} </td>
     </ng-container>
 
     <!-- bloodDiluent Column -->
     <ng-container matColumnDef="bloodDiluent">
-      <th *matHeaderCellDef mat-header-cell> bloodDiluent</th>
-      <td *matCellDef="let medicationInTake" mat-cell> {{medicationInTake.bloodDiluent}} </td>
+      <th *matHeaderCellDef mat-header-cell>Blutverdünnungsmittel?</th>
+      <td *matCellDef="let medicationInTake" mat-cell> {{medicationInTake.bloodDiluent ? 'JA' : 'Nein'}} </td>
     </ng-container>
 
     <!-- Symbol Column -->
@@ -46,7 +40,8 @@
       <th *matHeaderCellDef mat-header-cell style="text-align: right">
 
         <!-- Add button -->
-        <button color="primary" id="add-button" mat-mini-fab matTooltip="Neues Medikament hinzufügen">
+        <button (click)="onAddNewOrEdit()" color="primary" id="add-button" mat-mini-fab
+                matTooltip="Neues Medikament hinzufügen">
           <mat-icon class="example-tab-icon">add</mat-icon>
         </button>
 
@@ -55,12 +50,12 @@
       <td *matCellDef="let medicationInTake" mat-cell style="text-align: right">
 
         <!-- Edit button -->
-        <button id="edit-button" mat-icon-button matTooltip="Medikament editieren">
+        <button (click)="onAddNewOrEdit(medicationInTake)" id="edit-button" mat-icon-button matTooltip="Medikament editieren">
           <mat-icon class="example-tab-icon">edit</mat-icon>
         </button>
 
         <!-- Delete button -->
-        <button (click)="deleteMedicationInTakeList()" color="warn" id="delete-button"
+        <button (click)="onDelete(medicationInTake)" color="warn" id="delete-button"
                 mat-icon-button matTooltip="Medikament löschen">
           <mat-icon class="example-tab-icon">delete</mat-icon>
         </button>

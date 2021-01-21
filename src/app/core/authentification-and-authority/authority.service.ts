@@ -4,11 +4,7 @@ import { map } from 'rxjs/operators'
 import { HttpClient } from '@angular/common/http'
 import { AppConfigService } from '../app-config.service'
 
-/**
- *
- * @author Steve Ngalamo (Software Developer Intern)
- *
- */
+
 @Injectable({providedIn: 'root'})
 export class AuthorityService {
     permissions: any = {}
