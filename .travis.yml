@@ -31,11 +31,11 @@ before_install:
 
 before_deploy:
   # make the script executable
-  - chmod +x set_aws_credentials.sh
-  - chmod +x deploy_script.sh
+  - chmod +x scripts/set_aws_credentials.sh
+  - chmod +x scripts/deploy_script.sh
   # set up temporary aws session credentials, remember to update env. variables
   # in the file set_aws_credentials.sh in travis for every login and refresh on aws
-  - ./set_aws_credentials.sh
+  - ./scripts/set_aws_credentials.sh
 
 deploy:
   - provider: script
