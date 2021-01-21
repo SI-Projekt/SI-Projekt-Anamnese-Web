@@ -20,6 +20,7 @@ addons:
 
 before_script:
   - npm install -g @angular/cli
+
 script:
   #- npm run lint
   #- npm run test
