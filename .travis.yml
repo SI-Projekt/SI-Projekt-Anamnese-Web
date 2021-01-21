@@ -32,7 +32,7 @@ install:
   - pushd $(pyenv root)
   - git fetch
   - git checkout v$PYENV_VERSION
-  - pyenv install -v $PYTHON_VERSION
+  - pyenv install -v ${PYTHON_VERSION}
   - popd
 before_deploy:
   - pyenv global $PYTHON_VERSION
