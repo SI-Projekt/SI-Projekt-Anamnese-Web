@@ -26,9 +26,6 @@ script:
   #- npm run test
   - ng build  #this can be submitted as environment variable
 
-before_install:
-  - choco install python --version 3.8.0
-  - python -m pip install --upgrade pip
 install:
   - PYENV_VERSION=1.2.20
   - PYTHON_VERSION=3.8.7
