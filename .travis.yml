@@ -1,7 +1,5 @@
 language: node_js
-
-
-dist: trusty
+dist: xenial
 
 node_js:
   - "12"
@@ -26,18 +24,12 @@ script:
   #- npm run test
   - ng build  #this can be submitted as environment variable
 
-install:
-  - PYENV_VERSION=1.2.20
-  - PYTHON_VERSION=3.8.7
-  - pushd $(pyenv root)
-  - git fetch
-  - git checkout v$PYENV_VERSION
-  - pyenv install -v $PYTHON_VERSION
-  - popd
-before_deploy:
-  - pyenv global $PYTHON_VERSION
+before_install:
+  - pyenv global 3.7.1
   - pip install -U pip
   - pip install awscli
+
+before_deploy:
   # make the script executable
   - chmod +x set_aws_credentials.sh
   - chmod +x deploy_script.sh
