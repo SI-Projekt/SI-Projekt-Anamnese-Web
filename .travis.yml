@@ -21,7 +21,7 @@ before_script:
 script:
   - ng lint
   - npm run test-headless # ou ng test
-  - ng build --prod --base-href https://t-palmer.github.io/travis-demo/ #this can be submitted as environment variable
+  - ng build --prod si-project-web-app-image #this can be submitted as environment variable
 
 before_deploy:
   - pyenv global 3.7.1
