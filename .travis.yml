@@ -17,10 +17,11 @@ addons:
 
 before_script:
   - npm install -g @angular/cli
-
+  - sudo apt-get install -y dos2unix
 script:
   #- npm run lint
   #- npm run test
+  - dos2unix scripts/*
   - ng build  #this can be submitted as environment variable
 
 before_install:
@@ -39,7 +40,7 @@ before_deploy:
 deploy:
   - provider: script
     skip_cleanup: true
-    script: bash deploy_script.sh
+    script: deploy_script.sh
  #   wait_until_deployed: true
     on:
       branch: issue-21-upload_frontend_to_aws
