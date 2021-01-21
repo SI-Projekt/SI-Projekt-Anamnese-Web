@@ -39,7 +39,7 @@ before_deploy:
 deploy:
   - provider: script
     skip_cleanup: true
-    script: deploy_script.sh
-    wait_until_deployed: true
+    script: bash deploy_script.sh
+ #   wait_until_deployed: true
     on:
       branch: issue-21-upload_frontend_to_aws
