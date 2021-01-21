@@ -1,25 +1,25 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing'
 
-import { DiagnosisModalComponent } from './diagnosis-modal.component';
+import { DiagnosisModalComponent } from './diagnosis-modal.component'
 
 describe('DiagnosisModalComponent', () => {
-  let component: DiagnosisModalComponent;
-  let fixture: ComponentFixture<DiagnosisModalComponent>;
+  let component: DiagnosisModalComponent
+  let fixture: ComponentFixture<DiagnosisModalComponent>
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ DiagnosisModalComponent ]
     })
-    .compileComponents();
-  });
+    .compileComponents()
+  })
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DiagnosisModalComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    fixture = TestBed.createComponent(DiagnosisModalComponent)
+    component = fixture.componentInstance
+    fixture.detectChanges()
+  })
 
   it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+    expect(component).toBeTruthy()
+  })
+})
