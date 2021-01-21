@@ -19,8 +19,8 @@ before_script:
   - npm install -g @angular/cli
   - sudo apt-get install -y dos2unix
 script:
-  #- npm run lint
-  #- npm run test
+  - npm run lint
+  - npm run test
   - dos2unix scripts/*
   - ng build  #this can be submitted as environment variable
 
