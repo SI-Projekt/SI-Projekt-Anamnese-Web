@@ -21,6 +21,8 @@ before_script:
 script:
   - npm run lint
   - npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
+ # - npm run lint
+  #- npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
   - dos2unix scripts/*
   - npm run build.aws  #this can be submitted as environment variable
 
@@ -43,4 +45,4 @@ deploy:
     script: scripts/deploy_script.sh
     wait_until_deployed: true
     on:
-      branch: master
+      branch: issue-24-test_FE_nad_BE_connection_in_aws
