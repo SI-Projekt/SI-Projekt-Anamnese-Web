@@ -1,5 +1,5 @@
 export const environment = {
-  production: false,
+  production: true,
 
   // Paths:
   // baseUrl: 'http://54.145.7.15:8080', // server
