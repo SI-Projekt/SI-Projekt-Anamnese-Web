@@ -44,4 +44,4 @@ deploy:
     script: scripts/deploy_script.sh
     wait_until_deployed: true
     on:
-      branch: issue-24-test_FE_nad_BE_connection_in_aws
+      branch: master
