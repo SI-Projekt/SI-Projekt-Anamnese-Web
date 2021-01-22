@@ -250,16 +250,16 @@ export class NewRegistrationStepperComponent implements OnInit {
   }
 
   private createPerson(): void {
-    this.personService.add(this.person).subscribe(() => {
-      },
-      err => {
-        console.log('Error in NewRegistrationModalComponent.listPersons()')
-        console.log(err)
-        this.snackBar.open('Could not create new person', 'Close', {
-          duration: 4000
-        })
-      }
-    )
+    // this.personService.add(this.person).subscribe(() => {
+    //   },
+    //   err => {
+    //     console.log('Error in NewRegistrationModalComponent.listPersons()')
+    //     console.log(err)
+    //     this.snackBar.open('Could not create new person', 'Close', {
+    //       duration: 4000
+    //     })
+    //   }
+    // )
   }
 
 }

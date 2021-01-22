@@ -3,7 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http'
 import { map } from 'rxjs/operators'
 import { v4 as uuid } from 'uuid'
 import { AppConfigService } from '../../core/app-config.service'
-import { IPerson } from '../../model/person.interface'
+import { IPerson, IPersonTO } from '../../model/person.interface'
 
 
 @Injectable({providedIn: 'root'})
@@ -35,7 +35,7 @@ export class PersonService {
   }
 
   /*** TO ADD A NEW PERSON ***/
-  add(person: IPerson): any {
+  add(person: IPersonTO): any {
     return this.httpClient.post(this.personUrl, person)
       .pipe(map((res: Response) => res))
   }

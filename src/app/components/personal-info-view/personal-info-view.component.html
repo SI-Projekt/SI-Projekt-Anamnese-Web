@@ -10,7 +10,7 @@
            src="../../../assets/logos/personal.jpg">
       Personal
     </ng-template>
-    <app-person-list *ngIf="tabIndex === 0" [personType]="personal"></app-person-list>
+    <app-person-list *ngIf="tabIndex === 0" [personType]="personType[0]"></app-person-list>
   </mat-tab>
 
  <!-- PATIENTS -->
@@ -21,7 +21,7 @@
            src="../../../assets/logos/patient-logo.png">
       Patienten
     </ng-template>
-    <app-person-list *ngIf="tabIndex === 1" [personType]="patienten"></app-person-list>
+    <app-person-list *ngIf="tabIndex === 1" [personType]="personType[1]"></app-person-list>
   </mat-tab>
 
   <!-- DIAGNOSIS -->

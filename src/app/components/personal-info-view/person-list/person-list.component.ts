@@ -7,7 +7,7 @@ import { MyProfileModalComponent } from '../../home-patient/my-profile-modal/my-
 import { MatDialog } from '@angular/material/dialog'
 import { IDeleteConfirmation } from '../../../model/delete-confirmation.interface'
 import { DeleteConfirmationComponent } from '../../../shared/dialogs/delete-confirmation-modal/delete-confirmation.component'
-import { NewRegistrationStepperComponent } from '../../log-in/new-registration/new-registration-stepper/new-registration-stepper.component'
+import { StartNewRegistrationModalComponent } from '../../../shared/dialogs/start-new-registration-modal/start-new-registration-modal.component'
 
 @Component({
   selector: 'app-person-list',
@@ -42,11 +42,9 @@ export class PersonListComponent implements OnInit, OnChanges {
   }
 
 
-
   onAddNewPerson(): void {
-    const dialogRef = this.dialog.open(NewRegistrationStepperComponent, {
-      width: '750px',
-      data: {person: null, personType: this.personType}
+    const dialogRef = this.dialog.open(StartNewRegistrationModalComponent, {
+      data: {personType: this.personType}
     })
 
     dialogRef.afterClosed().subscribe(result => {
@@ -104,7 +102,7 @@ export class PersonListComponent implements OnInit, OnChanges {
   }
 
   private deletePerson(personId: string): void {
-    this.personService.delete(personId).subscribe((data: any) => {
+    this.personService.delete(personId).subscribe(() => {
         this.listPersons()
       },
       err => {
