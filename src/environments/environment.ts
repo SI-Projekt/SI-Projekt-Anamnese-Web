@@ -6,7 +6,6 @@ export const environment = {
   production: false,
   currentEnvironment: 'Local',
 
-  // Paths:
   baseUrl: 'http://localhost:8080'
 
 }

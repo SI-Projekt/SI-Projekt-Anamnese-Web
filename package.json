@@ -13,6 +13,7 @@
     "test.headless": "ng test --watch=false --browsers ChromeHeadless",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "aws-deploy": "aws s3 sync dist/SI-Projekt-Anamnese-Web/ s3://si-project-webapp-bucket",
     "postinstall": "ngcc"
   },
   "private": true,
