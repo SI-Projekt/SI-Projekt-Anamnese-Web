@@ -7,6 +7,6 @@ export const environment = {
   currentEnvironment: 'AWS',
 
   // Paths:
-  baseUrl: 'http://ec2-3-84-206-109.compute-1.amazonaws.com:8080',
+  baseUrl: 'ec2-34-207-186-190.compute-1.amazonaws.com:8080',
 
 }

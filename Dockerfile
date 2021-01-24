@@ -5,7 +5,7 @@ COPY package.json ./
 RUN npm install
 COPY . .
 RUN npm run lint
-RUN npm run build
+RUN npm run build.aws
 
 ### STAGE 2: Run ###
 FROM nginx:1.17.1-alpine
