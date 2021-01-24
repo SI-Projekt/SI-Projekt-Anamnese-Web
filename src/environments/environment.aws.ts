@@ -3,10 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
+  production: true,
   currentEnvironment: 'AWS',
 
   // Paths:
-  baseUrl: 'http://ec2-3-84-206-109.compute-1.amazonaws.com:8080',
+  baseUrl: 'http://ec2-34-207-186-190.compute-1.amazonaws.com:8080',
 
 }

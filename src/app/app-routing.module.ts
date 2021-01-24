@@ -7,14 +7,11 @@ import { HomePersonalComponent } from './components/home-personal/home-personal.
 import { rootingPath } from './shared/rooting-path'
 import { PatientInfoViewComponent } from './components/patient-info-view/patient-info-view.component'
 import { PersonalInfoViewComponent } from './components/personal-info-view/personal-info-view.component'
-import { NewRegistrationComponent } from './components/log-in/new-registration/new-registration.component'
 import { ResetPasswordComponent } from './components/log-in/reset-password/reset-password.component'
-import { AuthGuard } from './core/auth.guard'
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: '/' + rootingPath.login},
   {path: rootingPath.login, component: LogInComponent},
-  {path: rootingPath.new_registration, component: NewRegistrationComponent},
   {path: rootingPath.reset_password, component: ResetPasswordComponent},
   {path: rootingPath.home_patient, component: HomePatientComponent},
   {path: rootingPath.home_personal, component: HomePersonalComponent},

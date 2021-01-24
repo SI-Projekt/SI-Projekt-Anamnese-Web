@@ -25,7 +25,6 @@ import { PersonalInfoViewComponent } from './components/personal-info-view/perso
 import { AppComponent } from './app.component'
 import { AppRoutingModule } from './app-routing.module'
 import { DiagnosisListComponent } from './components/personal-info-view/diagnosis-list/diagnosis-list.component'
-import { NewRegistrationComponent } from './components/log-in/new-registration/new-registration.component'
 import { PersonListComponent } from './components/personal-info-view/person-list/person-list.component'
 import { ResetPasswordComponent } from './components/log-in/reset-password/reset-password.component'
 import { MatTableModule } from '@angular/material/table'
@@ -44,7 +43,6 @@ import { DiseaseListPatientComponent } from './components/patient-info-view/dise
 import { MedicationInTakeListPatientComponent } from './components/patient-info-view/medication-in-take-list-patient/medication-in-take-list-patient.component'
 import { AuthInterceptor } from './core/authentification-and-authority/auth.Interceptor'
 import { AuthGuard } from './core/auth.guard'
-import { NewRegistrationStepperComponent } from './components/log-in/new-registration/new-registration-stepper/new-registration-stepper.component'
 import { DeleteConfirmationComponent } from './shared/dialogs/delete-confirmation-modal/delete-confirmation.component'
 import { ConfirmationComponent } from './shared/dialogs/confirmation-modal/confirmation.component'
 import { AllergyModalComponent } from './shared/dialogs/allergy-modal/allergy-modal.component'
@@ -80,7 +78,6 @@ const angularMaterialModules = [
     PersonListComponent,
     DiagnosisListComponent,
     DiseaseListComponent,
-    NewRegistrationComponent,
     ResetPasswordComponent,
     AllergyListComponent,
     MedicationInTakeListComponent,
@@ -90,7 +87,6 @@ const angularMaterialModules = [
     DiagnosisListPatientComponent,
     DiseaseListPatientComponent,
     MedicationInTakeListPatientComponent,
-    NewRegistrationStepperComponent,
     DeleteConfirmationComponent,
     ConfirmationComponent,
     AllergyModalComponent,
@@ -128,7 +124,7 @@ const angularMaterialModules = [
     ConfirmationComponent,
     DeleteConfirmationComponent,
     MyProfileModalComponent,
-    NewRegistrationComponent
+    StartNewRegistrationModalComponent
   ],
 
   bootstrap: [AppComponent]
