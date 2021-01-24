@@ -28,35 +28,6 @@
       <td *matCellDef="let diagnosis" mat-cell> {{diagnosis.bodyRegion}} </td>
     </ng-container>
 
-
-    <ng-container matColumnDef="action">
-
-      <th *matHeaderCellDef mat-header-cell style="text-align: right; width: 20%">
-
-        <!-- Add button -->
-        <button *ngIf="patientId" color="primary" id="add-button" mat-mini-fab matTooltip="Neue Untersuchung hinzufügen">
-          <mat-icon class="example-tab-icon">add</mat-icon>
-        </button>
-
-      </th>
-
-      <td *matCellDef="let diagnosis" mat-cell style="text-align: right">
-
-        <!-- Edit button -->
-        <button *ngIf="patientId" id="edit-button" mat-icon-button matTooltip="Untersuchung editieren">
-          <mat-icon class="example-tab-icon">edit</mat-icon>
-        </button>
-
-        <!-- Delete button -->
-        <button *ngIf="patientId" (click)="deleteDiagnosis()" color="warn" id="delete-button"
-                mat-icon-button matTooltip="Untersuchung löschen">
-          <mat-icon class="example-tab-icon">delete</mat-icon>
-        </button>
-
-      </td>
-
-    </ng-container>
-
     <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
     <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
   </table>

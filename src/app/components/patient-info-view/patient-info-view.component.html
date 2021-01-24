@@ -38,7 +38,7 @@
            width="24">
       Meine Allergien
     </ng-template>
-    <app-allergy-list-patient *ngIf="tabIndex === 2" [allergyList]="currentUser?.allergies"></app-allergy-list-patient>
+    <app-allergy-list-patient *ngIf="tabIndex === 2" [currentUser]="currentUser"></app-allergy-list-patient>
   </mat-tab>
 
   <!-- MedicationInTake -->

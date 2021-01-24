@@ -18,7 +18,7 @@ import { v4 as uuid } from 'uuid'
 export class AllergyListPatientComponent implements OnInit {
 
   displayedColumns: string[] = ['#', 'Name', 'action']
-  @Input() allergyList: any
+  @Input() currentUser: IPerson
 
   constructor(
     private allergyService: AllergyService,
@@ -31,9 +31,9 @@ export class AllergyListPatientComponent implements OnInit {
   ngOnInit(): void { }
 
   onAddNewOrEdit(allergy?: IAllergy): void {
-    const dialogRef = this.dialog.open(AllergyModalComponent, { // TODO
+    const dialogRef = this.dialog.open(AllergyModalComponent, {
       width: '750px',
-      data: allergy
+      data: {update: allergy, parent: 'patient', patient: this.currentUser}
     })
 
     dialogRef.afterClosed().subscribe(result => {
@@ -56,34 +56,6 @@ export class AllergyListPatientComponent implements OnInit {
     })
   }
 
-  private saveOnAddNew(allergy: IAllergy): void {
-    this.allergyService.add(allergy).subscribe(() => {
-        this.listCurrentUserAllergy()
-      },
-      err => {
-        console.log('Error in AllergyListPatientComponent.saveAddNewAllergy()')
-        console.log(err)
-        this.snackBar.open('Could not add this allergy', 'Close', {
-          duration: 4000
-        })
-      }
-    )
-  }
-
-  private saveOnEdit(allergyId: uuid, update: IAllergy): void {
-    this.allergyService.edit(allergyId, update).subscribe(() => {
-        this.listCurrentUserAllergy()
-      },
-      err => {
-        console.log('Error in AllergyListPatientComponent.saveEditAllergy()')
-        console.log(err)
-        this.snackBar.open('Could not edit this allergy', 'Close', {
-          duration: 4000
-        })
-      }
-    )
-  }
-
   private deleteAllergy(allergyId: uuid): void {
     this.allergyService.delete(allergyId).subscribe(() => {
         this.listCurrentUserAllergy()
@@ -101,8 +73,7 @@ export class AllergyListPatientComponent implements OnInit {
   private listCurrentUserAllergy(): void {
     this.personService.getOne(this.sessionService.getUserId()).subscribe(
       (person: IPerson) => {
-        this.allergyList = person.allergies
-        console.log(this.allergyList)
+        this.currentUser = person
       }
       ,
       err => {

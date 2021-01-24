@@ -7,6 +7,7 @@ import { IPerson } from '../../../model/person.interface'
 import { PersonService } from '../../../components/services/person.service'
 import { MatSnackBar } from '@angular/material/snack-bar'
 import { MedicationService } from '../../../components/services/medication.service'
+import { FilterService } from '../../../core/filter.service'
 
 @Component({
   selector: 'app-medication-in-take-modal',
@@ -23,6 +24,7 @@ export class MedicationInTakeModalComponent implements OnInit {
   editedMod: boolean
   patient: IPerson = <IPerson>{}
   patientsList: Array<IPerson> = []
+  patientsListFiltered: Array<IPerson> = []
   medication: IMedication = <IMedication>{}
   medicationTO: IMedicationTO = <IMedicationTO>{bloodDiluent: false}
 
@@ -30,6 +32,7 @@ export class MedicationInTakeModalComponent implements OnInit {
     private _formBuilder: FormBuilder,
     private personService: PersonService,
     private medicationService: MedicationService,
+    private filterService: FilterService,
     private snackBar: MatSnackBar,
     public dialogRef: MatDialogRef<MedicationInTakeModalComponent>,
     @Inject(MAT_DIALOG_DATA) public receivedData: any
@@ -38,6 +41,7 @@ export class MedicationInTakeModalComponent implements OnInit {
   ngOnInit(): void {
     this.patient = this.receivedData.patient
     this.patientsList = this.receivedData.patientsList
+    this.patientsListFiltered = this.receivedData.patientsList
 
     if (this.patient && this.patient.id) {
       this.medicationTO.patientId = this.patient.id
@@ -68,6 +72,14 @@ export class MedicationInTakeModalComponent implements OnInit {
   onBlutverduennungsmittel(event: any): void {
     this.medicationTO.bloodDiluent = event === 'true' ? true : false
     this.medication.bloodDiluent = event === 'true' ? true : false
+  }
+
+  applyPatientFilter(filterValue: any): void {
+    if (filterValue && filterValue.value.length >= 2) {
+      this.patientsListFiltered = this.filterService.searchBy(this.patientsList, filterValue.value, 'firstName')
+    } else {
+      this.patientsListFiltered = this.patientsList
+    }
   }
 
   displayAutoComplete(patient: IPerson): string {
@@ -148,11 +160,15 @@ export class MedicationInTakeModalComponent implements OnInit {
     )
   }
 
-  private getPatientName(): string {
-    if (this.patient) {
-      return  this.patient.firstName + ' ' + this.patient.lastName
+  private getPatientName(): IPerson {
+    if (this.receivedData.parent === 'patient') {
+      return this.receivedData.patient
     } else {
-      return ''
+      if (this.medication && this.medication.person) {
+        return this.medication.person
+      } else {
+        return null
+      }
     }
   }
 

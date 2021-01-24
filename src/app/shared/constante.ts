@@ -22,6 +22,13 @@ export const maritalStatusValues = {
   all: ['Single', 'Lebensgemeinschaft', 'Verheiratet', 'Geschieden', 'verwitwet']
 }
 
+export const examinationValues = {
+  COMPUTER_TOMOGRAM: 'CT',
+  Magnetic_Resonance_Imaging: 'MRT',
+  PALPATION: 'Palpation',
+  all: ['CT', 'MRT', 'Palpation']
+}
+
 export const genderConstants = {
   man: 'M',
   woman: 'W'

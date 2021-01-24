@@ -6,6 +6,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { MatSnackBar } from '@angular/material/snack-bar'
 import { PersonService } from '../../../components/services/person.service'
 import { allergyValues } from '../../constante'
+import { FilterService } from '../../../core/filter.service'
 
 @Component({
   selector: 'app-allergy-modal',
@@ -19,6 +20,7 @@ export class AllergyModalComponent implements OnInit {
   editedMod: boolean
   patient: IPerson = <IPerson>{}
   patientsList: Array<IPerson> = []
+  patientsListFiltered: Array<IPerson> = []
   allergies: Array<IAllergy> = []
   allergyValuesList: Array<IAllergy> = []
   allergyValuesFiltered: Array<IAllergy> = []
@@ -29,6 +31,7 @@ export class AllergyModalComponent implements OnInit {
     private _formBuilder: FormBuilder,
     private personService: PersonService,
     private allergyService: AllergyService,
+    private filterService: FilterService,
     private snackBar: MatSnackBar,
     public dialogRef: MatDialogRef<AllergyModalComponent>,
     @Inject(MAT_DIALOG_DATA) public receivedData: any,
@@ -42,6 +45,7 @@ export class AllergyModalComponent implements OnInit {
   ngOnInit(): void {
     this.patient = this.receivedData.patient
     this.patientsList = this.receivedData.patientsList
+    this.patientsListFiltered = this.receivedData.patientsList
 
     if (this.patient && this.patient.id) {
       this.allergyTO.patientId = this.patient.id
@@ -57,6 +61,14 @@ export class AllergyModalComponent implements OnInit {
     }
 
     this.formGroupInit()
+  }
+
+  applyPatientFilter(filterValue: any): void {
+    if (filterValue && filterValue.value.length >= 2) {
+      this.patientsListFiltered = this.filterService.searchBy(this.patientsList, filterValue.value, 'firstName')
+    } else {
+      this.patientsListFiltered = this.patientsList
+    }
   }
 
   displayAutoComplete(patient: IPerson): string {
@@ -126,8 +138,7 @@ export class AllergyModalComponent implements OnInit {
   private formGroupInit(): void {
     this.allergyFormGroup = this._formBuilder.group({
       patientennameCtrl: [{
-        value: this.getPatientName(),
-        disabled: this.receivedData.parent === 'patient'},
+        value: this.getPatient(), disabled: this.receivedData.parent === 'patient'},
         Validators.required],
       allergyCtrl: [''],
     })
@@ -142,11 +153,12 @@ export class AllergyModalComponent implements OnInit {
 
   }
 
-  private getPatientName(): string {
-    if (this.patient) {
-      return  this.patient.firstName + ' ' + this.patient.lastName
+  private getPatient(): IPerson {
+    if (this.receivedData.parent === 'patient') {
+      this.allergies = this.receivedData.patient.allergies
+      return this.receivedData.patient
     } else {
-      return ''
+      return null
     }
   }
 

@@ -12,9 +12,9 @@
   <mat-form-field style="width: 45%">
     <mat-label>Patient</mat-label>
     <input formControlName="patientennameCtrl" [matAutocomplete]="patientAutoComplete"
-           matInput placeholder="Patientenname"  required>
+           matInput placeholder="Patientenname" (keyup)="applyPatientFilter($event.target)"  required>
     <mat-autocomplete #patientAutoComplete="matAutocomplete" [displayWith]="displayAutoComplete">
-      <mat-option *ngFor="let patient of patientsList" [value]="patient">
+      <mat-option *ngFor="let patient of patientsListFiltered" [value]="patient">
         <span>{{patient.firstName}} {{patient.lastName}}</span>
       </mat-option>
     </mat-autocomplete>
